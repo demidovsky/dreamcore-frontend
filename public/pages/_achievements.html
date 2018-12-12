@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/libs/css/style.css">
+  <!-- <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/libs/css/override.css">
+  <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+</head>
+
+<body>
+  <!-- main wrapper -->
+  <div class="dashboard-main-wrapper">
+    <!-- navbar -->
+    <div class="dashboard-header">
+      <nav class="navbar navbar-expand-lg bg-white fixed-top">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../assets/dreamcore_logo_black.png" alt="DREAMCORE" height="50px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto navbar-right-top">
+            <li class="nav-item">
+              <div id="custom-search" class="top-search-bar">
+                <input class="form-control" type="text" placeholder="Search..">
+              </div>
+            </li>
+            <li class="nav-item dropdown notification">
+              <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+            </li>
+            <li class="nav-item dropdown connection">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
+            </li>
+            <li class="nav-item dropdown nav-user">
+              <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- end navbar -->
+    <!-- left sidebar -->
+     <div class="nav-left-sidebar sidebar-dark">
+      <div class="menu-list">
+        <nav class="navbar navbar-light">
+          <!-- <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+          <div class="" id="navbarNav">
+            <ul class="navbar-nav flex-column">
+
+<li class="nav-divider"> Modules </li>
+
+<li class="nav-item"><a class="nav-link" href="_tasks.html"><i class="fa fa-fw fa-list"></i>Tasks</a></li>
+<li class="nav-item"><a class="nav-link active" href="_achievements.html"><i class="fa fa-fw fa-award"></i>Achievements</a></li>
+<li class="nav-item nav-item-disabled"><a class="nav-link" href="#"><i class="fa fa-fw fa-lock"></i>Scopes</a></li>
+<li class="nav-item nav-item-disabled"><a class="nav-link" href="#"><i class="fa fa-fw fa-lock"></i>Priorities</a></li>
+<li class="nav-item nav-item-disabled"><a class="nav-link" href="#"><i class="fa fa-fw fa-lock"></i>Streaks</a></li>
+<li class="nav-item nav-item-disabled"><a class="nav-link" href="#"><i class="fa fa-fw fa-lock"></i>Timeline</a></li>
+<li class="nav-item nav-item-disabled"><a class="nav-link" href="#"><i class="fa fa-fw fa-lock"></i>Finance</a></li>
+<li class="nav-item nav-item-disabled"><a class="nav-link" href="#"><i class="fa fa-fw fa-lock"></i>Wishlist</a></li>
+
+<li class="nav-divider"> Team </li>
+
+<li class="nav-item nav-item-disabled"><a class="nav-link" href="#"><i class="fa fa-fw fa-lock"></i>Family</a></li>
+<li class="nav-item nav-item-disabled"><a class="nav-link" href="#"><i class="fa fa-fw fa-lock"></i>Friends</a></li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- end left sidebar -->
+    <!-- wrapper  -->
+    <div class="dashboard-wrapper">
+      <div class="container-fluid dashboard-content">
+        <div class="row">
+          <div class="col-xl-12">
+            <!-- pageheader  -->
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-header" id="top">
+                  <h2 class="pageheader-title">Achievements </h2>
+                  <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                  <div class="page-breadcrumb">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Modules</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Achievements</li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end pageheader  -->
+            <!-- overview  -->
+            <!-- <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-section" id="overview">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                      <h2>Overview</h2>
+                      <p class="lead">A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.</p>
+                      <ul class="list-unstyled arrow">
+                        <li>Bootstrap’s cards provide a flexible and extensible content container with multiple variants and options.</li>
+                        <li>Additional card with action button like dropdown on right side.</li>
+                        <li>Card with tabs.</li>
+                        <li>Card with buttons on top header. </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- end overview  -->
+            <!-- card varience  -->
+            <div class="row">
+              <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="section-block" id="card-variance">
+                  <h3 class="section-title"> Card Variance </h3>
+                  <p> Easily display grids of images, videos, text, and more. </p>
+                </div>
+              </div> -->
+
+<!-- 
+<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+  <div class="card card-figure">
+    <figure class="figure">
+      <div class="figure-img">
+        <img class="img-fluid" src="https://farm9.staticflickr.com/8502/8291946025_079fcb7616_m.jpg" alt="Card image cap">
+        <div class="figure-action">
+          <a href="#" class="btn btn-block btn-sm btn-primary">Редактировать</a>
+        </div>
+      </div>
+      <figcaption class="figure-caption">
+        <h6 class="figure-title"> Завести детей </h6>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+
+
+<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+  <div class="card card-figure">
+    <figure class="figure">
+      <img class="img-fluid" src="https://farm5.staticflickr.com/4171/34451722141_84da59cfe6_m.jpg" alt="Card image cap">
+      <figcaption class="figure-caption">
+        <h6 class="figure-title"> Записать альбом </h6>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+
+<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+  <div class="card card-figure">
+    <figure class="figure">
+      <img class="img-fluid" src="https://farm5.staticflickr.com/4281/35461660216_a3f4884b61_m.jpg" alt="Card image cap">
+      <figcaption class="figure-caption">
+        <h6 class="figure-title"> Посетить Исландию </h6>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+
+<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+  <div class="card card-figure">
+    <figure class="figure">
+      <img class="img-fluid" src="https://c1.staticflickr.com/4/3799/8918367978_b516597e46_n.jpg" alt="Card image cap">
+      <figcaption class="figure-caption">
+        <h6 class="figure-title"> Получить водные права </h6>
+      </figcaption>
+    </figure>
+  </div>
+</div> -->
+
+<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+  <div class="card card-figure card-add">
+    <figure class="figure">
+      <div class="card-add-image">
+        <img class="img-fluid" src="https://c1.staticflickr.com/4/3799/8918367978_b516597e46_n.jpg" alt="Card image cap"></div>
+      <figcaption class="figure-caption">
+        <a href="#" class="btn btn-primary">Add</a>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+
+
+            </div>
+            <!-- end card varience  -->
+
+
+          </div>
+          <!--  sidebar nav fixed  -->
+          <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12" style="display:none">
+            <div class="sidebar-nav-fixed">
+              <ul class="list-unstyled">
+                <li><a href="#overview" class="active">Overview</a></li>
+                <li><a href="#cards">Cards</a></li>
+                <li><a href="#image-card">Card Images</a></li>
+                <li><a href="#headerfooter">Header & Footer</a></li>
+                <li><a href="#cardaction">Card Action<span class="badge badge-secondary ml-1">Fresh</span></a></li>
+                <li><a href="#cardfooterlink">Card With Footer Link <span class="badge badge-secondary ml-1">New</span></a></li>
+                <li><a href="#c-nav">Card Navigation</a></li>
+                <li><a href="#masonary">Card Masonary</a></li>
+                <li><a href="#card-list">Card List Group</a></li>
+                <li><a href="#card-variance">Card Variance</a></li>
+                <li><a href="#top">Back to Top</a></li>
+              </ul>
+            </div>
+          </div>
+          <!--  end sidebar nav fixed  -->
+        </div>
+      </div>
+      <!-- footer -->
+      <div class="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12">
+              Copyright © 2018 Dreamcore
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
+              <div class="text-md-right footer-links d-none d-sm-block">
+                <a href="javascript: void(0);">About</a>
+                <a href="javascript: void(0);">Support</a>
+                <a href="javascript: void(0);">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end footer -->
+    </div>
+  </div>
+  <!-- end main wrapper -->
+  <!-- Optional JavaScript -->
+  <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+  <script src='../assets/libs/js/main-js.js'></script>
+   
+</body>
+ 
+</html>
