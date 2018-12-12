@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import PageHeader from './PageHeader';
 import Achievements from './modules/Achievements';
+import Actions from './modules/Actions';
 
 class Dashboard extends Component {
   render() {
@@ -11,7 +13,14 @@ class Dashboard extends Component {
         <Sidebar/>
         <div className="dashboard-wrapper">
           <div className="container-fluid dashboard-content">
-            <Achievements/>
+            <div className="row">
+              <div className="col-xl-12">
+                <PageHeader breadcrumps={['Modules', 'Achievements']}/>
+
+                <Actions/>
+
+              </div>
+            </div>
           </div>
           <div className="footer">
             <div className="container-fluid">

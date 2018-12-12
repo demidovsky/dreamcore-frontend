@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Sidebar.css';
 
 class Sidebar extends Component {
   render() {
@@ -12,8 +13,8 @@ class Sidebar extends Component {
 
   <li className="nav-divider"> Modules </li>
 
-  <li className="nav-item"><a className="nav-link" href="_tasks.html"><i className="fa fa-fw fa-list"></i>Tasks</a></li>
   <li className="nav-item"><a className="nav-link active" href="_achievements.html"><i className="fa fa-fw fa-award"></i>Achievements</a></li>
+  <li className="nav-item"><a className="nav-link" href="_tasks.html"><i className="fa fa-fw fa-list"></i>Actions</a></li>
   <li className="nav-item nav-item-disabled"><a className="nav-link" href="#"><i className="fa fa-fw fa-lock"></i>Scopes</a></li>
   <li className="nav-item nav-item-disabled"><a className="nav-link" href="#"><i className="fa fa-fw fa-lock"></i>Priorities</a></li>
   <li className="nav-item nav-item-disabled"><a className="nav-link" href="#"><i className="fa fa-fw fa-lock"></i>Streaks</a></li>

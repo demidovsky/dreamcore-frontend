@@ -1,0 +1,29 @@
+
+.sidebar-dark {
+  background: url(./geometric.jpg) center top no-repeat;
+  background-size: auto 100%;
+}
+
+.sidebar-dark .nav-divider {
+  color: #aaa;
+}
+
+.sidebar-dark.nav-left-sidebar .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.sidebar-dark.nav-left-sidebar .navbar-nav .nav-link.active {
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+.sidebar-dark.nav-left-sidebar .nav-link i {
+  color: #aaa;
+}
+
+.nav-left-sidebar {
+  width: 190px;
+  position: fixed;
+}
