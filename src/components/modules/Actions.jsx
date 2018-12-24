@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import PageHeader from './../PageHeader';
 
 
 class Toolbar extends React.Component {
@@ -36,7 +37,8 @@ class Toolbar extends React.Component {
 
 class Actions extends Component {
   render() {
-    return (
+    return [
+    <PageHeader breadcrumps={['Modules', 'Actions']} />,
 
 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
     <div className="card">
@@ -54,19 +56,19 @@ class Actions extends Component {
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Call John</td>
+                        <td>Do something</td>
                         <td>11.12.2018 11:57</td>
                         <td><Toolbar/></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>Check reports</td>
+                        <td>Find something</td>
                         <td>11.12.2018 11:57</td>
                         <td><Toolbar/></td>
                   </tr>
                     <tr>
                         <th scope="row">3</th>
-                        <td>Go to meeting</td>
+                        <td>Create something</td>
                         <td>11.12.2018 11:57</td>
                         <td><Toolbar/></td>
                   </tr>
@@ -86,7 +88,7 @@ class Actions extends Component {
         </div>
     </div>
 </div>
-    );
+    ];
   }
 }
 
