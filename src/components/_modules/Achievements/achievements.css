@@ -1,0 +1,10 @@
+.img-thumb {
+  display: inline-block;
+  width: 19%;
+  margin: 0.5%;
+}
+
+.create-achievement {
+  position: sticky;
+  top: 5rem;
+}

@@ -1862,7 +1862,7 @@ Sidebar Page Navigations
 
 .sidebar-nav-fixed {
     position: sticky;
-    top: 5rem;
+    top: 9rem;
 }
 
 .sidebar-nav-fixed ul {}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import logo from './dreamcore_logo_black.png';
+import './navbar.css';
+
 
 class Navbar extends Component {
   render() {
@@ -9,9 +11,10 @@ class Navbar extends Component {
           <a className="navbar-brand" href="../index.html">
             <img src={logo} alt="DREAMCORE" height="50px"/>
           </a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" onClick={this.props.onSidebarButtonClick}>
+            <i className="fas fa-bars"></i>
           </button>
+
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto navbar-right-top">
               <li className="nav-item">
@@ -20,13 +23,13 @@ class Navbar extends Component {
                 </div>
               </li>
               <li className="nav-item dropdown notification">
-                <a className="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fas fa-fw fa-bell"></i> <span className="indicator"></span></a>
+                <a className="nav-link nav-icons" href="" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fas fa-fw fa-bell"></i> <span className="indicator"></span></a>
               </li>
               <li className="nav-item dropdown connection">
-                <a className="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i className="fas fa-fw fa-th"></i> </a>
+                <a className="nav-link" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i className="fas fa-fw fa-th"></i> </a>
               </li>
               <li className="nav-item dropdown nav-user">
-                <a className="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a className="nav-link nav-user-img" href="" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img src="../assets/images/avatar-1.jpg" alt="" className="user-avatar-md rounded-circle"/>
                 </a>
               </li>

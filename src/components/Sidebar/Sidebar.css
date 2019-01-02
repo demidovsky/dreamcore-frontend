@@ -10,6 +10,7 @@
 
 .sidebar-dark.nav-left-sidebar .navbar-nav .nav-link {
   color: #fff;
+  border: 1px solid transparent;
 }
 
 .sidebar-dark.nav-left-sidebar .navbar-nav .nav-link.active {
@@ -26,4 +27,27 @@
 .nav-left-sidebar {
   width: 190px;
   position: fixed;
+  z-index: 1;
+  left: 0;
+}
+
+.nav-left-sidebar.open {
+  left: 0;
+}
+
+
+@media screen and (max-width: 767px) {
+  .nav-left-sidebar {
+    /*left: -190px;*/
+  }
+
+  .nav-left-sidebar.closed {
+    left: 0px;
+    width: 44px;
+  }
+
+  .nav-left-sidebar.closed .nav-divider { display: none; }
+  .nav-left-sidebar.closed .nav-link { font-size: 0; }
+  .nav-left-sidebar.closed i.fa { margin: 0; }
+  .nav-left-sidebar.closed .navbar { padding: 14px 0; }
 }

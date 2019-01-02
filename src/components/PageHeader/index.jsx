@@ -6,7 +6,7 @@ function Breadcrumps (props) {
 
   const items = props.items.slice(0, -1).map((item, index) =>
     <li className="breadcrumb-item" key={index}>
-      <a href="#" className="breadcrumb-link">{item}</a>
+      <a href="" className="breadcrumb-link">{item}</a>
     </li>
   );
   const current = _.last(props.items);
