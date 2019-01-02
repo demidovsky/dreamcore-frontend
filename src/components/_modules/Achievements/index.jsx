@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import PageHeader from './../../PageHeader';
 import './achievements.css';
 
-
 class Achievements extends Component {
   render() {
     return [
-    <PageHeader breadcrumps={['Modules', 'Achievements']} />,
+      <PageHeader breadcrumps={ [ 'Modules', 'Achievements' ] } />,
 
-
-    <div className="row">
-{/*
+      <div className="row">
+        {/*
       <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
         <div className="card card-figure">
           <figure className="figure">
@@ -22,7 +20,6 @@ class Achievements extends Component {
         </div>
       </div>
 
-
       <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
         <div className="card card-figure">
           <figure className="figure">
@@ -33,7 +30,6 @@ class Achievements extends Component {
           </figure>
         </div>
       </div>
-
 
       <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
         <div className="card card-figure">
@@ -56,7 +52,6 @@ class Achievements extends Component {
           </figure>
         </div>
       </div>
-
 
       <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
         <div className="card card-figure">
@@ -124,43 +119,20 @@ class Achievements extends Component {
         </div>
       </div>*/}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6">
-        <div className="card card-figure card-add">
-          <figure className="figure">
-            <div className="card-add-image">
-              <img className="img-fluid" src="https://c1.staticflickr.com/4/3799/8918367978_b516597e46_n.jpg" alt=""/></div>
-            <figcaption className="figure-caption">
-              <a href="/achievement/add" className="btn btn-primary">Add</a>
-            </figcaption>
-          </figure>
+        <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6">
+          <div className="card card-figure card-add">
+            <figure className="figure">
+              <div className="card-add-image">
+                <img className="img-fluid" 
+                              src="https://c1.staticflickr.com/4/3799/8918367978_b516597e46_n.jpg" alt=""/></div>
+              <figcaption className="figure-caption">
+                <a href="/achievement/add" className="btn btn-primary">Add</a>
+              </figcaption>
+            </figure>
+          </div>
         </div>
-      </div>
-    
 
-
-
-
-
-
-
-
-
-
-
-    </div>];
+      </div> ];
   }
 }
 

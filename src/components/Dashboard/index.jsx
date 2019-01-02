@@ -29,17 +29,17 @@ class Dashboard extends Component {
     return (
       <Router>
         <div className="dashboard-main-wrapper">
-          <Navbar onSidebarButtonClick={this.onSidebarButtonClick}/>
-          <Sidebar onSidebarBlur={this.onSidebarBlur} isSidebarOpen={this.state.isSidebarOpen}/>
+          <Navbar onSidebarButtonClick={ this.onSidebarButtonClick }/>
+          <Sidebar onSidebarBlur={ this.onSidebarBlur } isSidebarOpen={ this.state.isSidebarOpen }/>
           <div className="dashboard-wrapper">
             <div className="container-fluid dashboard-content">
               <div className="row">
                 <div className="col-xl-12">
 
-                  <Route path="/" exact component={Index} />
-                  <Route path="/achievements/" component={Achievements} />
-                  <Route path="/achievement/:id" component={AchievementPage} />
-                  <Route path="/actions/" component={Actions} />
+                  <Route path="/" exact component={ Index } />
+                  <Route path="/achievements/" component={ Achievements } />
+                  <Route path="/achievement/:id" component={ AchievementPage } />
+                  <Route path="/actions/" component={ Actions } />
 
                 </div>
               </div>
