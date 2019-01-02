@@ -17,34 +17,6 @@ body {
   /*color: #eee;*/
 }
 
-
-.figure-title {
-  text-transform: none;
-}
-
-.card-figure img {
-  filter: grayscale();
-}
-
-.card-add { opacity: 0.3; border: 3px dashed; transition: 0.3s opacity; }
-.card-add:hover { opacity: 1; }
-
-.card-add .btn-primary {
-  width: 100%;
-}
-
-.card-add-image {
-  background: rgba(0,0,0,0.1);
-}
-
-.card-add-image img {
-  opacity: 0;
-}
-
-.nav-item-disabled {
-  opacity: 0.3;
-}
-
 .dropdown-item .fas {
   width: 20px;
 }

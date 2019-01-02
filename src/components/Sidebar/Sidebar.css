@@ -1,3 +1,6 @@
+.nav-item-disabled {
+  opacity: 0.3;
+}
 
 .sidebar-dark {
   background: url(./geometric.jpg) center top no-repeat;
@@ -48,6 +51,6 @@
 
   .nav-left-sidebar.closed .nav-divider { display: none; }
   .nav-left-sidebar.closed .nav-link { font-size: 0; }
-  .nav-left-sidebar.closed i.fa { margin: 0; }
+  .nav-left-sidebar.closed i.fa { margin: 0; color: #eee; }
   .nav-left-sidebar.closed .navbar { padding: 14px 0; }
 }

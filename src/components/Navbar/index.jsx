@@ -7,7 +7,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="dashboard-header">
-        <nav className="navbar navbar-expand-lg bg-white fixed-top">
+        <nav className="navbar navbar-expand-md bg-white fixed-top">
           <a className="navbar-brand" href="../index.html">
             <img src={logo} alt="DREAMCORE" height="50px"/>
           </a>
@@ -23,7 +23,7 @@ class Navbar extends Component {
                 </div>
               </li>
               <li className="nav-item dropdown notification">
-                <a className="nav-link nav-icons" href="" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fas fa-fw fa-bell"></i> <span className="indicator"></span></a>
+                <a className="nav-link nav-icons" href="" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fas fa-fw fa-bell"></i> {/*<span className="indicator"></span>*/}</a>
               </li>
               <li className="nav-item dropdown connection">
                 <a className="nav-link" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i className="fas fa-fw fa-th"></i> </a>
