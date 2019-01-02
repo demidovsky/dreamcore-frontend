@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
 import { NavLink } from 'react-router-dom';
 import './sidebar.css';
 
@@ -13,7 +12,7 @@ class Sidebar extends Component {
     if (this.props.isSidebarOpen) document.addEventListener('click', this.handleClickOutside);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.isSidebarOpen) document.addEventListener('click', this.handleClickOutside);
   }
 

@@ -17,16 +17,12 @@ class Dashboard extends Component {
     this.state = { isSidebarOpen: false };
   }
 
-  onSidebarButtonClick = (e) => {
-    this.setState(state => ({
-      isSidebarOpen: true
-    }));
+  onSidebarButtonClick = () => {
+    this.setState({ isSidebarOpen: true });
   }
 
   onSidebarBlur = () => {
-    this.setState(state => ({
-      isSidebarOpen: false
-    }));
+    this.setState({ isSidebarOpen: false });
   }
 
   render() {
