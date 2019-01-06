@@ -3,20 +3,15 @@ import { NavLink } from 'react-router-dom';
 import './sidebar.css';
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.sidebar = React.createRef();
-  }
-
-  componentDidUpdate() {
+  componentDidUpdate () {
     if (this.props.isSidebarOpen) document.addEventListener('click', this.handleClickOutside);
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (this.props.isSidebarOpen) document.addEventListener('click', this.handleClickOutside);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.removeEventListener('click', this.handleClickOutside);
   }
 
@@ -27,7 +22,7 @@ class Sidebar extends Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <div ref={ node => { this.wrapperRef = node } }
             className={ `nav-left-sidebar sidebar-dark ${ this.props.isSidebarOpen ? 'open' : 'closed' }` }>

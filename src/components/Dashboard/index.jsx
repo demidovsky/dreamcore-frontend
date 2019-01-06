@@ -4,15 +4,16 @@ import './dashboard.css';
 
 import Navbar from './../Navbar';
 import Sidebar from './../Sidebar';
-// import PageHeader from './../PageHeader';
+import Modules from './../Modules';
+
 import Achievements from './../_modules/Achievements';
-import AchievementPage from './../_modules/Achievements/edit';
+import AchievementEdit from './../_modules/Achievements/edit';
 import Actions from './../_modules/Actions';
 
 const Index = () => <h1>Hello World!</h1>;
 
 class Dashboard extends Component {
-  constructor(props){
+  constructor (props){
     super(props);
     this.state = { isSidebarOpen: false };
   }
@@ -25,7 +26,7 @@ class Dashboard extends Component {
     this.setState({ isSidebarOpen: false });
   }
 
-  render() {
+  render () {
     return (
       <Router>
         <div className="dashboard-main-wrapper">
@@ -37,8 +38,9 @@ class Dashboard extends Component {
                 <div className="col-xl-12">
 
                   <Route path="/" exact component={ Index } />
+                  <Route path="/modules" exact component={ Modules } />
                   <Route path="/achievements/" component={ Achievements } />
-                  <Route path="/achievement/:id" component={ AchievementPage } />
+                  <Route path="/achievement/:id" component={ AchievementEdit } />
                   <Route path="/actions/" component={ Actions } />
 
                 </div>

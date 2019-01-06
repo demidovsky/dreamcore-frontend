@@ -13,11 +13,11 @@
   text-transform: none;
 }
 
-.card-figure img {
+/*.card-figure img {
   filter: grayscale();
-}
+}*/
 
-.card-add { opacity: 0.3; border: 3px dashed; transition: 0.3s opacity; }
+.card-add { opacity: 0.3; border: 3px dashed #71748d !important; transition: 0.3s opacity; }
 .card-add:hover { opacity: 1; }
 
 .card-add .btn {
@@ -30,4 +30,27 @@
 
 .card-add-image img {
   opacity: 0;
+}
+
+.no-image {
+  opacity: 0.05;
+}
+
+.card-toolbar {
+  position: absolute;
+  right: 2px;
+  z-index: 1;
+}
+
+.card .card-toolbar .mdi-dots-vertical {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card.card-hover .card-toolbar .mdi-dots-vertical {
+  opacity: 1;
+}
+
+.card .card-toolbar .btn:focus .mdi-dots-vertical {
+  opacity: 1;
 }

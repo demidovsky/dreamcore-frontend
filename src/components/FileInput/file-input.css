@@ -1,0 +1,22 @@
+.custom-file-input {
+  cursor: pointer;
+}
+
+.custom-file .btn {
+  float: right;
+  position: relative;
+  z-index: 2;
+  height: 38px;
+}
+
+.custom-file-input {
+  position: absolute;
+}
+
+.custom-file-label {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  padding-right: 65px;
+}

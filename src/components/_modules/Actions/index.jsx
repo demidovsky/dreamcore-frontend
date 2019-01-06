@@ -1,43 +1,21 @@
 import React, { Component } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import PageHeader from './../../PageHeader';
+import Toolbar from './../../Toolbar';
 import './actions.css';
 
-class Toolbar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      dropdownOpen: false
-    };
-  }
-
-  toggle() {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }));
-  }
-
-  render() {
-    return (
-      <Dropdown isOpen={ this.state.dropdownOpen } toggle={ this.toggle }>
-        <DropdownToggle className="btn-light dropdown-toolbar">
-          <i className="mdi mdi-dots-vertical"></i>
-        </DropdownToggle>
-        <DropdownMenu right>
-          <DropdownItem className="text-success"><i className="fas fa-check"></i> Completed</DropdownItem>
-          <DropdownItem className="text-danger"><i className="fas fa-trash-alt"></i> Delete</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    );
-  }
-}
+const toolbarItems = {
+  complete: <span className="text-success"><i className="fas fa-check"></i> Mark completed</span>,
+  delete: <span className="text-danger"><i className="fas fa-times"></i> Delete</span>,
+};
 
 class Actions extends Component {
-  render() {
+  handleToolbar = (itemName) => {
+    console.log(itemName);
+  }
+
+  render () {
     return [
-      <PageHeader breadcrumps={ [ 'Modules', 'Actions' ] } />,
+      <PageHeader breadcrumps={ ['Modules', 'Actions'] } />,
 
       <div className="row">
 
@@ -61,19 +39,25 @@ class Actions extends Component {
                     <th scope="row">1</th>
                     <td>Do something</td>
                     {/*<td>11.12.2018 11:57</td>*/}
-                    <td><Toolbar/></td>
+                    <td>
+                      <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Find something</td>
                     {/*<td>11.12.2018 11:57</td>*/}
-                    <td><Toolbar/></td>
+                    <td>
+                      <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td>Create something</td>
                     {/*<td>11.12.2018 11:57</td>*/}
-                    <td><Toolbar/></td>
+                    <td>
+                      <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
+                    </td>
                   </tr>
                   <tr className="task-create">
                     <th scope="row"></th>
@@ -96,7 +80,7 @@ class Actions extends Component {
           <div className="card">
             <h4 className="card-header text-primary">
               <i className="fas fa-running"></i>&nbsp; This week
-        </h4>
+            </h4>
             <div className="card-body">
               <table className="table table-hover">
                 <thead>
@@ -112,19 +96,25 @@ class Actions extends Component {
                     <th scope="row">1</th>
                     <td>Do something</td>
                     {/*<td>11.12.2018 11:57</td>*/}
-                    <td><Toolbar/></td>
+                    <td>
+                      <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Find something</td>
                     {/*<td>11.12.2018 11:57</td>*/}
-                    <td><Toolbar/></td>
+                    <td>
+                      <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td>Create something</td>
                     {/*<td>11.12.2018 11:57</td>*/}
-                    <td><Toolbar/></td>
+                    <td>
+                      <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
+                    </td>
                   </tr>
                   <tr className="task-create">
                     <th scope="row"></th>
