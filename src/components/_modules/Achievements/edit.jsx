@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Formik } from 'formik';
+import axios from 'axios';
 import PageHeader from './../../PageHeader';
 import FileInput from './../../FileInput';
 import noImage from './no-image.jpg';
@@ -10,6 +12,28 @@ class AchievementEdit extends Component {
     this.state = {
       id: parseInt(props.match.params.id, 10)
     };
+  }
+
+  save = (values, { setSubmitting }) => {
+    if (this.state.id) {
+      axios.patch(`http://localhost:1337/achievements/${ this.state.id }`, {
+        name: values.name,
+        notes: values.notes,
+      })
+      .then((response) => {
+         console.log(response);
+         setSubmitting(false);
+      });
+    } else {
+      axios.post('http://localhost:1337/achievements', {
+        name: values.name,
+        notes: values.notes,
+      })
+      .then((response) => {
+         console.log(response);
+         setSubmitting(false);
+      });
+    }
   }
 
   componentDidMount () {
@@ -41,18 +65,32 @@ class AchievementEdit extends Component {
     const name = this.state.name || '';
     const notes = this.state.notes || '';
     const imageUrl = this.state.picture || '';
+    const id = this.state.id;
 
     return (
       <React.Fragment>
         <PageHeader breadcrumps={ ['Modules', 'Achievements', 'Create achievement'] } />
 
-      <div className="row">
-
+        <div className="row">
         <div className="col-sm-6 col-lg-6">
           <div className="card create-achievement">
             <h3 className="card-header">Description</h3>
             <div className="card-body">
-              <form>
+
+<Formik enableReinitialize initialValues={ { name, notes } } onSubmit={ this.save }>
+{({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+        /* and other goodies */
+      }) => (
+
+
+              <form onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-4">
                     <label className="col-form-label">Preview</label>
@@ -68,22 +106,25 @@ class AchievementEdit extends Component {
                   <div className="col-md-8">
                     <div className="form-group">
                       <label htmlFor="inputText3" className="col-form-label">Name</label>
-                      <input id="inputText3" type="text" className="form-control" value={ name } />
+                      <input name="name" type="text" className="form-control"
+                        value={ values.name } onChange={handleChange} onBlur={handleBlur} />
                     </div>
                   </div>
                 </div>
             
                 <div className="form-group">
                   <label htmlFor="exampleFormControlTextarea1">Notes</label>
-                  <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
-                    value={ notes }></textarea>
+                  <textarea name="notes" className="form-control" rows="3"
+                    value={ values.notes } onChange={handleChange} onBlur={handleBlur}></textarea>
                 </div>
 
                 <div className="form-group">
-                  <button className="btn btn-lg btn-success">Save</button>
+                  <button type="submit" className="btn btn-lg btn-success">Save</button>
                 </div>
 
               </form>
+              )}
+    </Formik>
             </div>
           </div>
         </div>
@@ -92,7 +133,7 @@ class AchievementEdit extends Component {
           <div className="card">
             <h3 className="card-header">Image</h3>
             <div className="card-body border-top">
-              <form>
+              {/*<form>*/}
 
                 <FileInput/>
                 {/*<div className="form-group custom-file">
@@ -151,7 +192,7 @@ class AchievementEdit extends Component {
                   <button className="btn btn-outline-primary">Load more...</button>
                 </div>
            
-              </form>
+              {/*</form>*/}
             </div>
           </div>
         </div>
