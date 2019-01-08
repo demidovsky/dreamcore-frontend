@@ -21,20 +21,6 @@ class AchievementItem extends React.Component {
     };
   }
 
-  handleMouseOver = () => { this.setState({ isHover: true }); }
-  handleMouseOut = () => { this.setState({ isHover: false }); }
-
-  componentDidMount () {
-    this.container.addEventListener('mouseover', this.handleMouseOver);
-    this.container.addEventListener('mouseout', this.handleMouseOut);
-  }
-
-  componentWillUnmount () {
-    if (!this.container) return;
-    this.container.removeEventListener('mouseover', this.handleMouseOver);
-    this.container.removeEventListener('mouseout', this.handleMouseOut);
-  }
-
   handleToolbar = (itemName) => {
     console.log(itemName, this.id);
     this.setState({ redirect: `/achievement/${ this.id }` });
@@ -46,8 +32,7 @@ class AchievementItem extends React.Component {
     }
 
     return (
-      <div ref={ node => { this.container = node } }
-        className={ `card card-figure ${ this.state.isHover ? 'card-hover' : '' }` }>
+      <div className="card card-figure">
         <div className="card-toolbar">
           <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
         </div>

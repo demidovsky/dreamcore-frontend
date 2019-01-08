@@ -11,6 +11,8 @@
 
 .figure-title {
   text-transform: none;
+  max-height: 28px;
+  white-space: normal;
 }
 
 /*.card-figure img {
@@ -42,15 +44,19 @@
   z-index: 1;
 }
 
-.card .card-toolbar .mdi-dots-vertical {
+.card .card-toolbar i {
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.card.card-hover .card-toolbar .mdi-dots-vertical {
+.card:hover .card-toolbar i {
   opacity: 1;
 }
 
-.card .card-toolbar .btn:focus .mdi-dots-vertical {
+.card .card-toolbar .btn:focus i {
   opacity: 1;
+}
+
+.achievement-preview {
+  max-width: 200px;
 }
