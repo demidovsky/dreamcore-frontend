@@ -315,19 +315,19 @@ textarea.form-control {
 }
 
 input::-webkit-input-placeholder {
-    color: #71748d !important;
+    color: #ccc !important;
 }
 
 input:focus::-webkit-input-placeholder {
-    color: #5969ff !important;
+    color: #ccc !important;
 }
 
 textarea::-webkit-input-placeholder {
-    color: #71748d !important;
+    color: #ccc !important;
 }
 
 textarea:focus::-webkit-input-placeholder {
-    color: #5969ff !important;
+    color: #ccc !important;
 }
 
 button.btn {}

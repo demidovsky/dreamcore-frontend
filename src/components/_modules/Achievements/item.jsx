@@ -15,7 +15,7 @@ class AchievementItem extends React.Component {
     super(props);
     this.id = this.props.item.id;
     this.name = this.props.item.name;
-    this.imageUrl = this.props.item.imageUrl;
+    this.imageUrl = this.props.item.picture;
     this.state = {
       redirect: null
     };

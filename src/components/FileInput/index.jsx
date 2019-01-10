@@ -1,8 +1,6 @@
 import React from 'react';
 import './file-input.css';
 
-// const $ = (selector) => document.querySelectorAll(selector);
-
 // TODO: replace with some external lib
 class FileInput extends React.Component {
   constructor (props){
@@ -36,11 +34,15 @@ class FileInput extends React.Component {
   render () {
     return (
       <div className="form-group custom-file" ref={ node => { this.container = node } }>
-        <button className={ `btn ${ this.state.isHover ? 'btn-primary' : 'btn-outline-primary' } btn-xs` }>
+        <button type="button"
+          className={ `btn ${ this.state.isHover ? 'btn-primary' : 'btn-outline-primary' } btn-xs` }>
           Select
         </button>
-        <input type="file" className="custom-file-input" id="customFile" ref={ node => { this.input = node } }/>
-        <label className="custom-file-label" htmlFor="customFile">{ this.state.filename || 'Upload...' }</label>
+        <input type="file" name="file" className="custom-file-input"
+          onChange={ this.props.onChange } ref={ node => { this.input = node } }/>
+        <label className="custom-file-label" htmlFor="customFile">
+          { this.state.filename || 'Choose file...' }
+        </label>
       </div>
     );
   }

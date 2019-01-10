@@ -4,14 +4,14 @@
   margin: 0.5%;
 }
 
-.create-achievement {
+.achievement-preview {
   position: sticky;
   top: 5rem;
 }
 
 .figure-title {
   text-transform: none;
-  max-height: 28px;
+  /*max-height: 28px;*/
   white-space: normal;
 }
 
@@ -58,5 +58,25 @@
 }
 
 .achievement-preview {
-  max-width: 200px;
+  max-width: 250px;
+}
+
+.achievement-preview textarea {
+  resize: none;
+  height: 14px;
+  overflow: hidden;
+}
+
+.achievement-image-select {
+  min-height: 400px;
+}
+
+
+.achievement-input-name {
+  max-width: 500px;
+}
+
+.achievement-input-notes {
+  /*max-width: 500px;*/
+  min-height: 50px;
 }

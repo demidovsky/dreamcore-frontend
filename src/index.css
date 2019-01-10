@@ -75,3 +75,20 @@ th + td {
   filter: grayscale();
   opacity: 0.25;
 }
+
+.form-control-plaintext {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: inherit;
+}
+
+.form-control-plaintext:focus {
+  outline: none;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #5969ff;
+  border-color: #5969ff;
+}
