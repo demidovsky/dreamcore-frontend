@@ -10,7 +10,7 @@ import Achievements from './../_modules/Achievements';
 import AchievementEdit from './../_modules/Achievements/edit';
 import Actions from './../_modules/Actions';
 
-const Index = () => <h1>Hello World!</h1>;
+const Index = () => <h1>Hello world!</h1>;
 
 class Dashboard extends Component {
   constructor (props){
@@ -28,7 +28,7 @@ class Dashboard extends Component {
 
   render () {
     return (
-      <Router>
+      <Router basename="/app">
         <div className="dashboard-main-wrapper">
           <Navbar onSidebarButtonClick={ this.onSidebarButtonClick }/>
           <Sidebar onSidebarBlur={ this.onSidebarBlur } isSidebarOpen={ this.state.isSidebarOpen }/>
