@@ -1,5 +1,8 @@
 {
   parser: "babel-eslint",
+  "env": {
+    "browser": true
+  },
   "plugins": [
     "react"
   ],
@@ -32,11 +35,6 @@
     "no-console": 0,
     "space-before-function-paren": ["error", "always"]
   },
-  "globals": {
-    "document": true,
-    "fetch": true,
-    "console": true,
-    "setTimeout": true
-  },
+
   "extends": ["eslint:recommended", "plugin:react/recommended"]
 }
