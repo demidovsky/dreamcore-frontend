@@ -1,6 +1,26 @@
 import React from 'react'
+import Flickr from 'flickr-sdk';
+
+const API_KEY = '030eecfb70548131bdf6d6a6e5705a14';
+const SECRET = 'c7d2f33ef111cf67';
+
+var flickr = new Flickr(API_KEY);
 
 class ImageFromFlickr extends React.Component {
+  componentDidMount () {
+    flickr.photos.search({
+      text: 'flight',
+      page: 1,
+      per_page: 5
+    })
+    .then(result => {
+      console.log(result.body);
+    })
+    .catch(err => {
+      console.error(err);
+    })
+  }
+
   render () {
     return (
       <React.Fragment>

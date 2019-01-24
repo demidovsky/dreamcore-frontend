@@ -27,17 +27,18 @@ class ImageFromFile extends React.Component {
   render () {
     return (
       <Formik onSubmit={ this.onSubmit }>
-        {({ values, handleSubmit, setFieldValue, isSubmitting }) => (
+        {({ values, handleSubmit, setFieldValue, isSubmitting, submitForm }) => (
 
           <form onSubmit={ handleSubmit }>
             <div className="form-group">
               <FileInput value={ values.file } onChange={ (e) => {
                 console.log('change', e.currentTarget.files[0]);
-                setFieldValue('file', e.currentTarget.files[0])
+                setFieldValue('file', e.currentTarget.files[0]);
+                submitForm();
               } } />
             </div>
             <div className="form-group">
-              <button type="submit" disabled={ false /*!isSubmitting*/ }  className="btn btn-lg btn-outline-success">
+              <button type="submit" disabled={ !isSubmitting }  className="btn btn-lg btn-outline-success">
                 Apply image
               </button>
             </div>
