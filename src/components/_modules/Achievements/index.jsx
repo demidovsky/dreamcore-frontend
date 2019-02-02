@@ -14,7 +14,7 @@ class Achievements extends Component {
   }
 
   componentDidMount () {
-    fetch('http://localhost:1337/achievements/')
+    fetch('/achievements/')
       .then(res => res.json())
       .then(
         result => {
@@ -41,7 +41,7 @@ class Achievements extends Component {
       <React.Fragment>
         <PageHeader breadcrumps={ [ 'Modules', 'Achievements' ] } />
 
-        {this.state.isLoaded === false ? 
+        {this.state.isLoaded === false ?
           <div className="alert alert-danger" role="alert">
             Cannot load achievements
           </div>

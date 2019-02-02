@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Tab, Nav } from 'react-bootstrap';
 
-import ImageFromFlickr from './fromFlickr';
+// import ImageFromFlickr from './fromFlickr';
 import ImageFromFile from './fromFile';
 import ImageFromURL from './fromURL';
 
@@ -28,7 +28,8 @@ class AchievementImage extends React.Component {
             <Tab.Content>
 
               <Tab.Pane eventKey="from-flickr">
-                <ImageFromFlickr onImageSet={ this.props.onImageSet } />
+                Under construction
+                {/*<ImageFromFlickr onImageSet={ this.props.onImageSet } />*/}
               </Tab.Pane>
 
               <Tab.Pane eventKey="from-file">
