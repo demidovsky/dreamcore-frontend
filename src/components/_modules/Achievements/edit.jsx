@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import PageHeader from './../../PageHeader';
 import noImage from './no-image.jpg';
 import AchievementImage from './image';
@@ -17,7 +18,7 @@ class AchievementEdit extends React.Component {
 
   save = (values, { setSubmitting }) => {
     const method = this.state.id ? 'patch' : 'post';
-    const url = `http://localhost:1337/achievements/${ this.state.id || '' }`;
+    const url = `/achievements/${ this.state.id || '' }`;
 
     axios[method](url, {
       name: values.name,
@@ -25,7 +26,8 @@ class AchievementEdit extends React.Component {
       picture: values.picture
     })
     .then((response) => {
-      setTimeout(() => { console.log('saved', response); setSubmitting(false); }, 3000);
+      this.setState({ redirect: '/achievements' });
+      // setTimeout(() => { console.log('saved', response); setSubmitting(false); }, 3000);
     })
     .catch(error => {
       console.error(error);
@@ -33,7 +35,7 @@ class AchievementEdit extends React.Component {
   }
 
   load = (id) => {
-    axios.get(`http://localhost:1337/achievements/${ id }`)
+    axios.get(`/achievements/${ id }`)
       .then(response => {
         console.log('loaded', response);
         this.setState({ isLoaded: true, ...response.data });
@@ -59,8 +61,8 @@ class AchievementEdit extends React.Component {
   }
 
   removeListeners = () => {
-    this.previewName.removeEventListener('keyup', this.expandTextarea, false)
-    this.name.removeEventListener('keyup', this.expandTextarea, false)
+    if (this.previewName) this.previewName.removeEventListener('keyup', this.expandTextarea, false)
+    if (this.name) this.name.removeEventListener('keyup', this.expandTextarea, false)
   }
 
   componentDidMount () {
@@ -73,6 +75,10 @@ class AchievementEdit extends React.Component {
   }
 
   render () {
+    if (this.state.redirect) {
+      return <Redirect to={ this.state.redirect } />
+    }
+
     const name = this.state.name || '';
     const notes = this.state.notes || '';
     const picture = this.state.picture;

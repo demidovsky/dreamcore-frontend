@@ -9,15 +9,15 @@ import ImageFromURL from './fromURL';
 class AchievementImage extends React.Component {
   render () {
     return (
-      <Tab.Container id="left-tabs-example" defaultActiveKey="from-flickr">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="from-file">
         <Row>
           <Col sm={ 4 } md={ 3 }>
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
-                <Nav.Link eventKey="from-flickr">From Flickr</Nav.Link>
+                <Nav.Link eventKey="from-file">From file</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="from-file">From file</Nav.Link>
+                <Nav.Link eventKey="from-flickr">From Flickr</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="from-url">From URL</Nav.Link>
@@ -27,13 +27,13 @@ class AchievementImage extends React.Component {
           <Col sm={ 8 } md={ 9 }>
             <Tab.Content>
 
+              <Tab.Pane eventKey="from-file">
+                <ImageFromFile onImageSet={ this.props.onImageSet } />
+              </Tab.Pane>
+
               <Tab.Pane eventKey="from-flickr">
                 Under construction
                 {/*<ImageFromFlickr onImageSet={ this.props.onImageSet } />*/}
-              </Tab.Pane>
-
-              <Tab.Pane eventKey="from-file">
-                <ImageFromFile onImageSet={ this.props.onImageSet } />
               </Tab.Pane>
 
               <Tab.Pane eventKey="from-url">

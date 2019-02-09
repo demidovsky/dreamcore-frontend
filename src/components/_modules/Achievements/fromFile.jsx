@@ -8,7 +8,7 @@ class ImageFromFile extends React.Component {
   onSubmit = (values, { setSubmitting }) => {
     console.log('submit', values);
     setSubmitting(true);
-    const url = 'http://localhost:1337/image/upload';
+    const url = '/image/upload';
     const formData = new FormData();
     formData.append('image', values.file);
 
@@ -16,7 +16,7 @@ class ImageFromFile extends React.Component {
     .then(response => {
       console.log(response);
       setSubmitting(false);
-      this.props.onImageSet('http://localhost:1337' + response.data.url);
+      this.props.onImageSet(response.data.url);
     })
     .catch(error => {
       console.error(error);
@@ -38,7 +38,7 @@ class ImageFromFile extends React.Component {
               } } />
             </div>
             <div className="form-group">
-              <button type="submit" disabled={ !isSubmitting }  className="btn btn-lg btn-outline-success">
+              <button type="submit" disabled={ isSubmitting === true }  className="btn btn-lg btn-outline-success">
                 Apply image
               </button>
             </div>
