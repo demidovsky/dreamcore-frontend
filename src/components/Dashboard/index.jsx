@@ -5,6 +5,7 @@ import './dashboard.css';
 import Navbar from './../Navbar';
 import Sidebar from './../Sidebar';
 import Modules from './../Modules';
+import Welcome from './../Welcome';
 
 import Achievements from './../_modules/Achievements';
 import AchievementEdit from './../_modules/Achievements/edit';
@@ -37,7 +38,7 @@ class Dashboard extends Component {
               <div className="row">
                 <div className="col-xl-12">
 
-                  <Route path="/" exact component={ Index } />
+                  <Route path="/" exact component={ Welcome } />
                   <Route path="/modules" exact component={ Modules } />
                   <Route path="/achievements/" component={ Achievements } />
                   <Route path="/achievement/:id" component={ AchievementEdit } />
