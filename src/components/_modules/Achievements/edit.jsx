@@ -145,7 +145,7 @@ class AchievementEdit extends React.Component {
             <div className="card achievement-image-select">
               <h3 className="card-header bg-dark text-white"><b>Image</b></h3>
               <div className="card-body">
-                <AchievementImage onImageSet={ this.onImageSet }/>
+                <AchievementImage text={ name } onImageSet={ this.onImageSet }/>
               </div>
             </div>
           </Col>

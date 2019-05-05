@@ -7,18 +7,76 @@ const SECRET = 'c7d2f33ef111cf67';
 var flickr = new Flickr(API_KEY);
 
 class ImageFromFlickr extends React.Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      text: '',
+      loadedPage: 0,
+      page: 1,
+      images: []
+    };
+  }
+
   componentDidMount () {
+    // console.log('Flickr mount');
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    // console.log('Did update props', prevProps, this.props);
+    // console.log('Did update state', prevState, this.state);
+    if (!prevProps.text) this.reload(this.props.text);
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    // console.log('Should update props', this.props, nextProps);
+    // console.log('Should update state', this.state, nextState);
+    if (this.props.text !== nextProps.text) return true;
+    if (this.state.loadedPage !== nextState.loadedPage) return true;
+    if (this.state.text !== nextState.text) return true;
+    return false;
+  }
+
+  reload = (text) => {
+    console.log('reload');
     flickr.photos.search({
-      text: 'flight',
+      text: text,
       page: 1,
       per_page: 5
     })
     .then(result => {
-      console.log(result.body);
+      this.setState({
+        text,
+        images: result.body.photos.photo,
+        loadedPage: 1,
+      });
     })
     .catch(err => {
       console.error(err);
+    });
+  }
+
+  load = (text) => {
+    console.log('load');
+    flickr.photos.search({
+      text: text,
+      page: this.state.loadedPage + 1,
+      per_page: 5
     })
+    .then(result => {
+      this.setState(state => ({
+        text,
+        images: state.images.concat(result.body.photos.photo),
+        loadedPage: this.state.loadedPage + 1,
+      }));
+    })
+    .catch(err => {
+      console.error(err);
+    });
+  }
+
+  changeText = () => {
+    this.reload(this.keywords.value);
   }
 
   render () {
@@ -26,32 +84,26 @@ class ImageFromFlickr extends React.Component {
       <React.Fragment>
         <div className="form-group">
           <label htmlFor="inputSmall" className="col-form-label pt-0">Find by keywords</label>
-          <input type="text" defaultValue="" className="form-control form-control-sm"/>
+          <input type="text"
+            defaultValue={ this.props.text }
+            ref={ node => { this.keywords = node; } }
+            className="form-control form-control-sm"/>
+          <button className="btn btn-xs btn-outline-primary" onClick={ this.changeText }>Search</button>
         </div>
 
         <div className="mb-2">
 
-          <div className="img-thumb">
-            <img className="img-fluid" alt="" src="http://c1.staticflickr.com/5/4071/4277029894_7023f3ca2f_m.jpg"/>
-          </div>
-          <div className="img-thumb">
-            <img className="img-fluid" alt="" src="http://c1.staticflickr.com/8/7065/6852957177_9f27f30f12_m.jpg"/>
-          </div>
-          <div className="img-thumb">
-            <img className="img-fluid" alt="" src="http://c1.staticflickr.com/4/3936/14950097294_6212158ff5_m.jpg"/>
-          </div>
-
-          <div className="img-thumb">
-            <img className="img-fluid" alt="" src="http://c1.staticflickr.com/9/8420/8710133086_936fe32e0f_m.jpg"/>
-          </div>
-          <div className="img-thumb">
-            <img className="img-fluid" alt="" src="http://c1.staticflickr.com/9/8206/8235791752_c26a81fa90_m.jpg"/>
-          </div>
+          {this.state.images.map(img => {
+            const url = `https://farm${ img.farm }.staticflickr.com/${ img.server }/${ img.id }_${ img.secret }_q.jpg`;
+            return <div key={ img.id } className="img-thumb">
+              <img className="img-fluid" alt="" onClick={ () => { this.props.onImageSet(url) } } src={ url } />
+            </div>
+          })}
 
         </div>
 
         <div className="form-group">
-          <button className="btn btn-outline-primary float-right">Load more...</button>
+          <button className="btn btn-outline-primary float-right" onClick={ () => { this.load(this.state.text) } }>Load more...</button>
           <button className="btn btn-outline-success">Apply image</button>
         </div>
       </React.Fragment>

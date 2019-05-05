@@ -7,6 +7,10 @@ import ImageFromFile from './fromFile';
 import ImageFromURL from './fromURL';
 
 class AchievementImage extends React.Component {
+  constructor (props) {
+    super(props);
+  }
+
   render () {
     return (
       <Tab.Container id="left-tabs-example" defaultActiveKey="from-flickr">
@@ -28,7 +32,7 @@ class AchievementImage extends React.Component {
             <Tab.Content>
 
               <Tab.Pane eventKey="from-flickr">
-                <ImageFromFlickr onImageSet={ this.props.onImageSet } />
+                <ImageFromFlickr text={ this.props.text } onImageSet={ this.props.onImageSet } />
               </Tab.Pane>
 
               <Tab.Pane eventKey="from-file">
