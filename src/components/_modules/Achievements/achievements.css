@@ -80,3 +80,16 @@
   /*max-width: 500px;*/
   min-height: 50px;
 }
+
+canvas {
+  filter: grayscale(100);
+}
+
+.achievements-bg {
+  -webkit-background-size: cover;
+  background-size: cover;
+  margin-left: -30px;
+  margin-right: -30px;
+  background-position: center;
+  padding-top: 20px;
+}

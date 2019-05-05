@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AchievementItem from './item';
 import noImage from './no-image.jpg';
+import bg from './bg.jpg';
 
 const add = (
   <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6" key="0">
@@ -21,7 +22,7 @@ const add = (
 
 function AchievementList (props) {
   const items = props.items.map((item, index) => (
-    <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6" key={ (index + 1).toString() }>
+    <div className="col-xl-auto col-lg-auto col-md-4 col-sm-4 col-6" key={ (index + 1).toString() }>
       <AchievementItem item={ item } />
     </div>
     )
@@ -29,7 +30,7 @@ function AchievementList (props) {
   items.push(add);
 
   return (
-    <div className="row">{items}</div>
+    <div className="row achievements-bg" style={ { 'background-image': `url(${ bg })` } }>{items}</div>
   );
 }
 

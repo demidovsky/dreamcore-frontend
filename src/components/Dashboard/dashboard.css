@@ -13,6 +13,10 @@
   flex-direction: column;
 }
 
+.dashboard-content {
+  padding-bottom: 0;
+}
+
 @media screen and (max-width: 767px) {
   .dashboard-wrapper {
     margin-left: 44px;
