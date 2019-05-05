@@ -3,6 +3,8 @@ import PageHeader from './../../PageHeader';
 import AchievementList from './list';
 import './achievements.css';
 
+const BASE_URL = 'http://localhost:1337/';
+
 class Achievements extends Component {
   constructor (props) {
     super(props);
@@ -14,7 +16,7 @@ class Achievements extends Component {
   }
 
   componentDidMount () {
-    fetch('/achievements/')
+    fetch(`${BASE_URL}achievements/`)
       .then(res => res.json())
       .then(
         result => {

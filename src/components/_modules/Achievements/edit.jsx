@@ -8,6 +8,8 @@ import PageHeader from './../../PageHeader';
 import noImage from './no-image.jpg';
 import AchievementImage from './image';
 
+const BASE_URL = 'http://localhost:1337/';
+
 class AchievementEdit extends React.Component {
   constructor (props) {
     super(props);
@@ -18,7 +20,7 @@ class AchievementEdit extends React.Component {
 
   save = (values, { setSubmitting }) => {
     const method = this.state.id ? 'patch' : 'post';
-    const url = `/achievements/${ this.state.id || '' }`;
+    const url = `${BASE_URL}achievements/${ this.state.id || '' }`;
 
     axios[method](url, {
       name: values.name,
@@ -35,7 +37,7 @@ class AchievementEdit extends React.Component {
   }
 
   load = (id) => {
-    axios.get(`/achievements/${ id }`)
+    axios.get(`${ BASE_URL }achievements/${ id }`)
       .then(response => {
         console.log('loaded', response);
         this.setState({ isLoaded: true, ...response.data });

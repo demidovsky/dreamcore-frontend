@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Tab, Nav } from 'react-bootstrap';
 
-// import ImageFromFlickr from './fromFlickr';
+import ImageFromFlickr from './fromFlickr';
 import ImageFromFile from './fromFile';
 import ImageFromURL from './fromURL';
 
@@ -13,7 +13,7 @@ class AchievementImage extends React.Component {
 
   render () {
     return (
-      <Tab.Container id="left-tabs-example" defaultActiveKey="from-file">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="from-flickr">
         <Row>
           <Col sm={ 4 } md={ 3 }>
             <Nav variant="pills" className="flex-column">
