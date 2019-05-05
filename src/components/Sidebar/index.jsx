@@ -57,12 +57,12 @@ class Sidebar extends Component {
                 <li className="nav-item"><a className="nav-link" href="" title="Timeline">
                   <i className="fa fa-fw fa-stream"></i>Timeline</a>
                 </li>
-                <li className="nav-item"><a className="nav-link" href="" title="Finance">
+                {/*<li className="nav-item"><a className="nav-link" href="" title="Finance">
                   <i className="fa fa-fw fa-money-bill-alt"></i>Finance</a>
                 </li>
                 <li className="nav-item"><a className="nav-link" href="" title="Wishlist">
                   <i className="fa fa-fw fa-gift"></i>Wishlist</a>
-                </li>
+                </li>*/}
 
                 <li className="nav-divider"> Team </li>
 
