@@ -44,10 +44,12 @@ class Sidebar extends Component {
                     <i className="fa fa-fw fa-list"></i>Actions
                   </NavLink>
                 </li>
-
-                <li className="nav-item"><a className="nav-link" href="" title="Scopes">
-                  <i className="fa fa-fw fa-chart-pie"></i>Scopes</a>
+                <li className="nav-item">
+                  <NavLink to="/scopes" className="nav-link" activeClassName="active">
+                    <i className="fa fa-fw fa-list"></i>Scopes
+                  </NavLink>
                 </li>
+
                 <li className="nav-item"><a className="nav-link" href="" title="Priorities">
                   <i className="fa fa-fw fa-th-large"></i>Priorities</a>
                 </li>

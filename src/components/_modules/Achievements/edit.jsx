@@ -1,31 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import PageHeader from './../../PageHeader';
 import noImage from './no-image.jpg';
 import AchievementImage from './image';
+import ScopeList from '../Scopes/ScopeList';
 
-const BASE_URL = 'http://localhost:1337/';
+const BASE_URL = 'http://localhost:1337';
 
 class AchievementEdit extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      id: parseInt(props.match.params.id, 10)
+      id: parseInt(props.match.params.id, 10),
+      scopes: []
     };
   }
 
   save = (values, { setSubmitting }) => {
     const method = this.state.id ? 'patch' : 'post';
-    const url = `${BASE_URL}achievements/${ this.state.id || '' }`;
+    const url = `${ BASE_URL }/achievements/${ this.state.id || '' }`;
 
     axios[method](url, {
       name: values.name,
       notes: values.notes,
-      picture: values.picture
+      picture: values.picture,
+      scope: values.scope,
     })
     .then((response) => {
       this.setState({ redirect: '/achievements' });
@@ -37,7 +40,7 @@ class AchievementEdit extends React.Component {
   }
 
   load = (id) => {
-    axios.get(`${ BASE_URL }achievements/${ id }`)
+    axios.get(`${ BASE_URL }/achievements/${ id }`)
       .then(response => {
         console.log('loaded', response);
         this.setState({ isLoaded: true, ...response.data });
@@ -45,7 +48,29 @@ class AchievementEdit extends React.Component {
       })
       .catch(error => {
         this.setState({ isLoaded: false, error });
-    });
+      });
+  }
+
+  handleNewAction = () => {
+    const name = this.newActionInput.value;
+    axios
+      .post(`${ BASE_URL }/actions`, {
+        name: name,
+        achievement: this.state.id,
+        scope: this.state.scope
+      })
+      .then(response => {
+        console.log('created', response);
+        this.newActionInput.value = '';
+        this.setState(state => {
+          return {
+            actions: state.actions.concat({ name })
+          }
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   onImageSet = (url) => {
@@ -70,6 +95,27 @@ class AchievementEdit extends React.Component {
   componentDidMount () {
     this.addListeners();
     if (this.state.id) this.load(this.state.id);
+
+    fetch(`${ BASE_URL }/scopes/`)
+      .then(res => res.json())
+      .then(
+        result => {
+          console.log(result);
+          this.setState({
+            // isLoaded: true,
+            scopes: result
+          });
+        },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          error => {
+            /*this.setState({
+              // isLoaded: false,
+              error
+            });*/
+          }
+      )
   }
 
   componentWillUnmount () {
@@ -85,15 +131,17 @@ class AchievementEdit extends React.Component {
     const notes = this.state.notes || '';
     const picture = this.state.picture;
     const id = this.state.id;
+    const scopes = this.state.scopes || [];
+    const actions = this.state.actions || [];
 
     return (
       <React.Fragment>
         <PageHeader breadcrumps={ ['Modules', 'Achievements', `${ id ? 'Edit' : 'Create' } achievement`] } />
 
-        <Formik enableReinitialize initialValues={ { name, notes, picture } } onSubmit={ this.save }>
+        <Formik enableReinitialize initialValues={ { ...this.state } } onSubmit={ this.save }>
           {({ values, errors, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
 
-            <form onSubmit={ handleSubmit }>
+            <form onSubmit={ handleSubmit } className="achievement-edit">
 
               <Row>
 
@@ -115,7 +163,7 @@ class AchievementEdit extends React.Component {
 
                 <Col sm={ 8 } lg={ 6 }>
                   <div className="card create-achievement">
-                    <h3 className="card-header bg-dark text-white"><b>Description</b></h3>
+                    <h3 className="card-header bg-dark text-white"><b>Enter description</b></h3>
                     <div className="card-body">
                       <div className="form-group">
                         <label className="col-form-label">Name</label>
@@ -124,7 +172,7 @@ class AchievementEdit extends React.Component {
                           ref={ node => { this.name = node; } } />
                       </div>
                       <div className="form-group">
-                        <label className="col-form-label">Notes</label>
+                        <label className="col-form-label">Description (criteria)</label>
                         <textarea name="notes" className="form-control achievement-input-notes" rows="3"
                           value={ values.notes } onChange={ handleChange } onBlur={ handleBlur }></textarea>
                       </div>
@@ -134,10 +182,49 @@ class AchievementEdit extends React.Component {
                           value={ values.picture } onChange={ handleChange } onBlur={ handleBlur }
                           />
                       </div>
+                      
+                      <div className="form-group">
+                        <label className="col-form-label">Scope</label>
+                        <Field component="div" name="scope" className="achievement-scope-radio">
+                          {scopes.map(scope =>
+                            <label key={ scope.name } className="d-inline-block">
+                              <input value={ scope.id } type="radio" name="scope" defaultChecked={ parseInt(values.scope) === scope.id }
+                                className="custom-control-input"/>
+                                <span className={ `badge ${ parseInt(values.scope) === scope.id ? 'badge-primary' : 'badge-light'}`}>
+                                  <b>{ scope.name }</b>
+                                </span>
+                            </label>
+                          )}
+                        </Field>
+
+                      </div>
+                      <br/>
                       <div className="form-group">
                         <button disabled={ isSubmitting } type="submit" className="btn btn-lg btn-success">Save</button>
                       </div>
                     </div>
+                  </div>
+                </Col>
+
+                <Col sm={ 12 } lg={ 3 }>
+                  <div className="card">
+                    <h3 className="card-header bg-dark text-white"><b>Set actions</b></h3>
+                      <ul className="list-group list-group-flush">
+                        {actions.map(action =>
+                          <li key={ action.name } className="list-group-item">
+                            {action.name}
+                          </li>
+                        )}
+                        <li className="list-group-item">
+                          <div className="input-group">
+                            <input type="text" className="form-control" ref={ node => { this.newActionInput = node; } }/>
+                            <div className="input-group-append">
+                              <button onClick={ this.handleNewAction } type="button" className="btn btn-primary">Add</button>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+
                   </div>
                 </Col>
 
@@ -151,7 +238,7 @@ class AchievementEdit extends React.Component {
 
           <Col>
             <div className="card achievement-image-select">
-              <h3 className="card-header bg-dark text-white"><b>Image</b></h3>
+              <h3 className="card-header bg-dark text-white"><b>Pick Image</b></h3>
               <div className="card-body">
                 <AchievementImage text={ name } onImageSet={ this.onImageSet }/>
               </div>
@@ -163,6 +250,9 @@ class AchievementEdit extends React.Component {
       </React.Fragment>)
   }
 }
+
+
+
 
 AchievementEdit.propTypes = {
   match: PropTypes.object

@@ -10,8 +10,9 @@ import Welcome from './../Welcome';
 import Achievements from './../_modules/Achievements';
 import AchievementEdit from './../_modules/Achievements/edit';
 import Actions from './../_modules/Actions';
+import Scopes from './../_modules/Scopes';
+import ScopeEdit from './../_modules/Scopes/edit';
 
-const Index = () => <h1>Hello world!</h1>;
 
 class Dashboard extends Component {
   constructor (props){
@@ -37,13 +38,17 @@ class Dashboard extends Component {
             <div className="container-fluid dashboard-content">
               <div className="row">
                 <div className="col-xl-12">
-
-                  <Route path="/" exact component={ Welcome } />
+                  <Route path="/"        exact component={ Welcome } />
                   <Route path="/modules" exact component={ Modules } />
-                  <Route path="/achievements/" component={ Achievements } />
-                  <Route path="/achievement/:id" component={ AchievementEdit } />
-                  <Route path="/actions/" component={ Actions } />
 
+                  <Route path="/achievements/:id" exact component={ AchievementEdit } />
+                  <Route path="/achievements/"          component={ Achievements } />
+
+                  <Route path="/actions/" exact component={ Actions } />
+                  {/*<Route path="/actions/:id" exact component={ ActionEdit } />*/}
+
+                  <Route path="/scopes"     exact component={ Scopes } />
+                  <Route path="/scopes/:id" exact component={ ScopeEdit } />
                 </div>
               </div>
             </div>

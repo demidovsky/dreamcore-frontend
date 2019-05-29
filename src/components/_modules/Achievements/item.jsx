@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import Toolbar from './../../Toolbar';
-import noImage from './no-image.jpg';
+import noImage from './no-image2.jpg';
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -94,7 +94,7 @@ class AchievementItem extends React.Component {
   handleToolbar = (itemName) => {
     console.log(itemName, this.id);
     switch (itemName) {
-      case 'edit': this.setState({ redirect: `/achievement/${ this.id }` }); return;
+      case 'edit': this.setState({ redirect: `/achievements/${ this.id }` }); return;
       case 'delete': {
         axios.delete(`${ BASE_URL }achievements/${ this.id }`)
           .then(response => {
@@ -117,12 +117,13 @@ class AchievementItem extends React.Component {
     if (this.state.isDeleted) return null;
 
     return (
-      <div>
+      <NavLink to={ `/achievements/${ this.id }` } className="achievement-item">
         <div className="card-toolbar">
           <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
         </div>
         <canvas ref={ node => { this.canvas = node; } }></canvas>
-      </div>
+        <h6 className="figure-title text-center text-black">{ this.name }</h6>
+      </NavLink>
     );
 
     /*return (

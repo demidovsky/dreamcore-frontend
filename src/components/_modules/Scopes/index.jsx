@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Redirect, NavLink, Link } from 'react-router-dom';
 import PageHeader from './../../PageHeader';
-import ActionList from './ActionList';
-import ActionItem from './ActionItem';
-import './actions.css';
+import ScopeList from './ScopeList';
+import ScopeItem from './ScopeItem';
+import './scopes.css';
 import Toolbar from './../../Toolbar';
 
-const BASE_URL = 'http://localhost:1337';
+const BASE_URL = 'http://localhost:1337/';
 
 const toolbarItems = {
   edit: <span className="text-primary"><i className="fas fa-pen"></i> Edit</span>,
@@ -14,7 +14,7 @@ const toolbarItems = {
 };
 
 
-class Actions extends Component {
+class Scopes extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -25,7 +25,7 @@ class Actions extends Component {
   }
 
   componentDidMount () {
-    fetch(`${ BASE_URL }/actions`)
+    fetch(`${ BASE_URL }scopes/`)
     .then(res => res.json())
     .then(
       result => {
@@ -50,14 +50,14 @@ class Actions extends Component {
   render () {
     return (
       <React.Fragment>
-      <PageHeader breadcrumps={ [ 'Modules', 'Actions' ] } />
+      <PageHeader breadcrumps={ [ 'Modules', 'Scopes' ] } />
 
       {this.state.isLoaded === false ?
         <div className="alert alert-danger" role="alert">
-        Cannot load actions
+        Cannot load scopes
         </div>
         :
-        <ActionList hasAddButton={ true } hasColumns={ true } items={ this.state.items } /> }
+        <ScopeList hasAddButton={ true } hasColumns={ true } items={ this.state.items } /> }
         </React.Fragment>
         );
   }
@@ -65,4 +65,4 @@ class Actions extends Component {
 
 
 
-export default Actions;
+export default Scopes;

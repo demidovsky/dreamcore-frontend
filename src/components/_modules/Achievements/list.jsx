@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AchievementItem from './item';
 import noImage from './no-image.jpg';
-import bg from './bg.jpg';
+import bg from './bg4.jpg';
 
 const add = (
   <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6" key="0">
-    <Link to="/achievement/add" className="card card-figure card-add">
+    <Link to="/achievements/add" className="card card-figure card-add">
       <figure className="figure">
         <div className="card-add-image">
           <img className="img-fluid" src={ noImage } alt=""/>
@@ -30,7 +30,7 @@ function AchievementList (props) {
   items.push(add);
 
   return (
-    <div className="row achievements-bg" style={ { 'background-image': `url(${ bg })` } }>{items}</div>
+    <div className="row achievements-bg" style={ { backgroundImage: `url(${ bg })` } }>{items}</div>
   );
 }
 

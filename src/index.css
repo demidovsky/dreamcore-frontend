@@ -92,3 +92,12 @@ th + td {
   background-color: #5969ff;
   border-color: #5969ff;
 }
+
+.card-header {
+  background: url(./geometric.jpg) center top no-repeat;
+  background-size: cover;
+}
+
+.input-group > .form-control[type=text] {
+  height: 40px;
+}
