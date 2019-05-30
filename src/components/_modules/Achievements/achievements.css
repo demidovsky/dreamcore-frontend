@@ -102,7 +102,7 @@
   margin-bottom: 10px;
 }
 
-.achievement-item canvas {
+/*.achievement-item canvas {
   filter: grayscale(100);
   transition: filter 0.5s;
 }
@@ -113,7 +113,7 @@
 
 .achievement-item._completed canvas {
   filter: grayscale(0);
-}
+}*/
 
 .achievement-item .figure-title {
   max-width: 150px;

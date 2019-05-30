@@ -20,7 +20,7 @@ const add = (
 
 function ScopeList (props) {
   const items = props.items ? props.items.map((item, index) => (
-    <div className={ `col-12 ${ props.hasColumns ? 'col-sm-6 col-md-5' : '' }` } key={ (index + 1).toString() }>
+    <div className={ `col-12 ${ props.hasColumns ? 'col-sm-6 col-md-5 col-lg-4 col-xl-4' : '' }` } key={ (index + 1).toString() }>
       <ScopeItem item={ item } />
     </div>
     )

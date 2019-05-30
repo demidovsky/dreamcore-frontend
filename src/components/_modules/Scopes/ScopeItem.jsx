@@ -6,6 +6,8 @@ const toolbarItems = {
   delete: <span className="text-danger"><i className="fas fa-times"></i> Delete</span>,
 };
 
+const BASE_URL = 'http://localhost:1337';
+
 
 class ScopeItem extends React.Component {
   constructor (props) {
@@ -36,11 +38,16 @@ class ScopeItem extends React.Component {
         </div>
 
         <div className="card">
-          <img className="img-fluid" src={ this.imageUrl } alt={ this.name } />
+          <img className="img-fluid" src={ `${BASE_URL}${this.imageUrl}` } alt={ this.name } />
           <div className="card-body">
-            <h3 className="card-title">{ this.name }</h3>
+            <h3 className="card-title">
+              { this.name }
+              <span className={ `badge badge-${this.achievements.length ? 'secondary' : 'primary' } ml-3 float-right `}>
+                { this.achievements.length }
+              </span>
+            </h3>
             <p className="card-text">{ this.notes }</p>
-            <p className="text-muted">Last updated 3 mins ago</p>
+            <p className="text-muted"> Last updated 3 mins ago</p>
           </div>
         </div>
 

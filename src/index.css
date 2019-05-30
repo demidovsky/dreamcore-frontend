@@ -14,6 +14,7 @@ body, h1, h2, h3, h4, h5, h6 {
 body {
   /*background: url(./../../../assets/geometric.jpg) center top no-repeat;*/
   background-size: 100%;
+  background-color: #dee5ed;
   /*color: #eee;*/
 }
 
@@ -94,8 +95,14 @@ th + td {
 }
 
 .card-header {
-  background: url(./geometric.jpg) center top no-repeat;
+  background: #444 url(./geometric.jpg) center top no-repeat;
   background-size: cover;
+  font-weight: bold;
+  color: #fff;
+}
+
+.badge {
+  font-weight: bold;
 }
 
 .input-group > .form-control[type=text] {

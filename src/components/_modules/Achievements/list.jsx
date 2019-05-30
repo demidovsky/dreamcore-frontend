@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AchievementItem from './item';
 import noImage from './no-image.jpg';
-import bg from './bg4.jpg';
+import bg from './bg5.jpg';
 
 const add = (
   <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6" key="0">

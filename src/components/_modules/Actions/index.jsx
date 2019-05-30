@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Redirect, NavLink, Link } from 'react-router-dom';
 import PageHeader from './../../PageHeader';
 import ActionList from './ActionList';
+import ActionList2 from './ActionList2';
 import ActionItem from './ActionItem';
 import './actions.css';
 import Toolbar from './../../Toolbar';
@@ -49,20 +50,21 @@ class Actions extends Component {
 
   render () {
     return (
-      <React.Fragment>
-      <PageHeader breadcrumps={ [ 'Modules', 'Actions' ] } />
+      <Fragment>
+        <PageHeader breadcrumps={ ['Modules', 'Actions'] } />
 
-      {this.state.isLoaded === false ?
-        <div className="alert alert-danger" role="alert">
-        Cannot load actions
-        </div>
-        :
-        <ActionList hasAddButton={ true } hasColumns={ true } items={ this.state.items } /> }
-        </React.Fragment>
-        );
+        {this.state.isLoaded === false ?
+          <div className="alert alert-danger" role="alert">
+          Cannot load actions
+          </div>
+          :
+          <ActionList2 hasAddButton={ true } hasColumns={ true } items={ this.state.items } /> }
+
+
+      </Fragment>
+    );
   }
 }
-
 
 
 export default Actions;
