@@ -12,6 +12,7 @@ import AchievementEdit from './../_modules/Achievements/edit';
 import Actions from './../_modules/Actions';
 import Scopes from './../_modules/Scopes';
 import ScopeEdit from './../_modules/Scopes/edit';
+import Friends from './../_modules/Friends';
 
 
 class Dashboard extends Component {
@@ -49,6 +50,8 @@ class Dashboard extends Component {
 
                   <Route path="/scopes"     exact component={ Scopes } />
                   <Route path="/scopes/:id" exact component={ ScopeEdit } />
+
+                  <Route path="/friends"    exact component={ Friends } />
                 </div>
               </div>
             </div>

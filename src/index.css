@@ -94,6 +94,11 @@ th + td {
   border-color: #5969ff;
 }
 
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .card-header {
   background: #444 url(./geometric.jpg) center top no-repeat;
   background-size: cover;

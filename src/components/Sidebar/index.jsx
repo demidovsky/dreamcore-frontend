@@ -46,18 +46,24 @@ class Sidebar extends Component {
                 </li>
                 <li className="nav-item">
                   <NavLink to="/scopes" className="nav-link" activeClassName="active">
-                    <i className="fa fa-fw fa-list"></i>Scopes
+                    <i className="fa fa-fw fa-cubes"></i>Scopes
                   </NavLink>
                 </li>
 
-                <li className="nav-item"><a className="nav-link" href="" title="Priorities">
-                  <i className="fa fa-fw fa-th-large"></i>Priorities</a>
+                <li className="nav-item">
+                  <a className="nav-link" href="" title="Priorities">
+                    <i className="fa fa-fw fa-th-large"></i>Priorities
+                  </a>
                 </li>
-                <li className="nav-item"><a className="nav-link" href="" title="Streaks">
-                  <i className="fa fa-fw fa-grip-horizontal"></i>Streaks</a>
+                <li className="nav-item">
+                  <a className="nav-link" href="" title="Streaks">
+                    <i className="fa fa-fw fa-grip-horizontal"></i>Streaks
+                  </a>
                 </li>
-                <li className="nav-item"><a className="nav-link" href="" title="Timeline">
-                  <i className="fa fa-fw fa-stream"></i>Timeline</a>
+                <li className="nav-item">
+                  <a className="nav-link" href="" title="Plan">
+                    <i className="fa fa-fw fa-stream"></i>Plan
+                  </a>
                 </li>
                 {/*<li className="nav-item"><a className="nav-link" href="" title="Finance">
                   <i className="fa fa-fw fa-money-bill-alt"></i>Finance</a>
@@ -66,13 +72,18 @@ class Sidebar extends Component {
                   <i className="fa fa-fw fa-gift"></i>Wishlist</a>
                 </li>*/}
 
-                <li className="nav-divider"> Team </li>
+                <li className="nav-divider"> Collab </li>
 
-                <li className="nav-item"><a className="nav-link" href="" title="Family">
-                  <i className="fa fa-fw fa-home"></i>Family</a>
+                <li className="nav-item"><a className="nav-link" href="" title="News">
+                  <i className="fa fa-fw fa-heartbeat"></i>News</a>
                 </li>
-                <li className="nav-item"><a className="nav-link" href="" title="Friends">
-                  <i className="fa fa-fw fa-user-friends"></i>Friends</a>
+                {/*<li className="nav-item"><a className="nav-link" href="" title="Family">
+                  <i className="fa fa-fw fa-home"></i>Groups</a>
+                </li>*/}
+                <li className="nav-item">
+                  <NavLink to="/friends" className="nav-link" activeClassName="active">
+                    <i className="fa fa-fw fa-user-friends"></i>Friends
+                  </NavLink>
                 </li>
 
               </ul>
