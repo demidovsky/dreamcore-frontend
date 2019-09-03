@@ -74,7 +74,7 @@ class FriendItem extends React.Component {
                 <h3 className="card-title mb-2 text-truncate">
                   <NavLink to={ `/friends/${ this.id }` } className="">{ this.fullName }</NavLink>
                 </h3>
-                <h6 className="card-subtitle text-muted"> UI/UX Designer </h6>
+                {/*<h6 className="card-subtitle text-muted"> UI/UX Designer </h6>*/}
               </div>
               {/*<button className="btn btn-sm btn-secondary">
                 <i className="fa fa-fw fa-plus"></i> Follow</button>*/}

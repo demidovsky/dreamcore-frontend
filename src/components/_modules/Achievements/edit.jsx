@@ -163,7 +163,7 @@ class AchievementEdit extends React.Component {
 
                 <Col sm={ 8 } lg={ 6 }>
                   <div className="card create-achievement">
-                    <h3 className="card-header bg-dark text-white"><b>Enter description</b></h3>
+                    <h3 className="card-header bg-dark text-white">Enter description</h3>
                     <div className="card-body">
                       <div className="form-group">
                         <label className="col-form-label">Name</label>
@@ -183,7 +183,7 @@ class AchievementEdit extends React.Component {
                           />
                       </div>
                       
-                      <div className="form-group">
+                      <div className="form-group" style={{ display: 'none' }}>
                         <label className="col-form-label">Scope</label>
                         <Field component="div" name="scope" className="achievement-scope-radio">
                           {scopes.map(scope =>
@@ -191,7 +191,7 @@ class AchievementEdit extends React.Component {
                               <input value={ scope.id } type="radio" name="scope" defaultChecked={ parseInt(values.scope) === scope.id }
                                 className="custom-control-input"/>
                                 <span className={ `badge ${ parseInt(values.scope) === scope.id ? 'badge-primary' : 'badge-light'}`}>
-                                  <b>{ scope.name }</b>
+                                  { scope.name }
                                 </span>
                             </label>
                           )}
@@ -206,9 +206,9 @@ class AchievementEdit extends React.Component {
                   </div>
                 </Col>
 
-                <Col sm={ 12 } lg={ 3 }>
+                <Col sm={ 12 } lg={ 3 } style={{ display: 'none' }}>
                   <div className="card">
-                    <h3 className="card-header bg-dark text-white"><b>Set actions</b></h3>
+                    <h3 className="card-header bg-dark text-white">Set actions</h3>
                       <ul className="list-group list-group-flush">
                         {actions.map(action =>
                           <li key={ action.name } className="list-group-item">
@@ -217,7 +217,7 @@ class AchievementEdit extends React.Component {
                         )}
                         <li className="list-group-item">
                           <div className="input-group">
-                            <input type="text" className="form-control" ref={ node => { this.newActionInput = node; } }/>
+                            <input disabled type="text" className="form-control" ref={ node => { this.newActionInput = node; } }/>
                             <div className="input-group-append">
                               <button onClick={ this.handleNewAction } type="button" className="btn btn-primary">Add</button>
                             </div>
@@ -238,7 +238,7 @@ class AchievementEdit extends React.Component {
 
           <Col>
             <div className="card achievement-image-select">
-              <h3 className="card-header bg-dark text-white"><b>Pick Image</b></h3>
+              <h3 className="card-header bg-dark text-white">Pick Image</h3>
               <div className="card-body">
                 <AchievementImage text={ name } onImageSet={ this.onImageSet }/>
               </div>

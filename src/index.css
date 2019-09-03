@@ -14,7 +14,8 @@ body, h1, h2, h3, h4, h5, h6 {
 body {
   /*background: url(./../../../assets/geometric.jpg) center top no-repeat;*/
   background-size: 100%;
-  background-color: #dee5ed;
+  /*background-color: #dee5ed;*/
+  background-color: #f7f4f4;
   /*color: #eee;*/
 }
 
@@ -102,14 +103,39 @@ th + td {
 .card-header {
   background: #444 url(./geometric.jpg) center top no-repeat;
   background-size: cover;
-  font-weight: bold;
+  font-weight: 600;
   color: #fff;
 }
 
 .badge {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .input-group > .form-control[type=text] {
   height: 40px;
+}
+
+.user-social-box {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-social-media {
+  display: inline-block !important;
+  padding: 16px !important;
+  width: auto;
+}
+
+.user-avatar {
+  -webkit-background-size: cover;
+  background-size: cover;
 }

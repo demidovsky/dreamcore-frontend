@@ -7,8 +7,7 @@ import FriendItem from './FriendItem';
 import Toolbar from './../../Toolbar';
 import axios from 'axios';
 
-
-const BASE_URL = 'http://localhost:1337/';
+const BASE_URL = 'http://localhost:1337';
 
 const toolbarItems = {
   edit: <span className="text-primary"><i className="fas fa-pen"></i> Edit</span>,
@@ -27,7 +26,7 @@ class Friends extends Component {
   }
 
   componentDidMount () {
-    axios.get(`${ BASE_URL }friends/`)
+    axios.get(`${ BASE_URL }/friends`)
     // .then(res => res.json())
     .then(
       result => {

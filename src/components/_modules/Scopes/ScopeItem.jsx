@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, NavLink, Link } from 'react-router-dom';
+import axios from 'axios';
 import Toolbar from './../../Toolbar';
 const toolbarItems = {
   edit: <span className="text-primary"><i className="fas fa-pen"></i> Edit</span>,
@@ -20,6 +21,24 @@ class ScopeItem extends React.Component {
     this.state = {
       redirect: null
     };
+  }
+
+  handleToolbar = (itemName) => {
+    console.log(itemName, this.id);
+    switch (itemName) {
+      case 'edit': this.setState({ redirect: `/scopes/${ this.id }` }); return;
+      case 'delete': {
+        axios.delete(`${ BASE_URL }/scopes/${ this.id }`)
+          .then(response => {
+            console.log('deleted', response);
+            this.setState({ isDeleted: true });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+        return;
+      }
+    }
   }
 
   render () {

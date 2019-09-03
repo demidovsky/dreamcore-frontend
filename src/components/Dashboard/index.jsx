@@ -6,6 +6,7 @@ import Navbar from './../Navbar';
 import Sidebar from './../Sidebar';
 import Modules from './../Modules';
 import Welcome from './../Welcome';
+import Profile from './../Profile';
 
 import Achievements from './../_modules/Achievements';
 import AchievementEdit from './../_modules/Achievements/edit';
@@ -43,7 +44,7 @@ class Dashboard extends Component {
                   <Route path="/modules" exact component={ Modules } />
 
                   <Route path="/achievements/:id" exact component={ AchievementEdit } />
-                  <Route path="/achievements/"          component={ Achievements } />
+                  <Route path="/achievements/"    exact component={ Achievements } />
 
                   <Route path="/actions/" exact component={ Actions } />
                   {/*<Route path="/actions/:id" exact component={ ActionEdit } />*/}
@@ -52,6 +53,8 @@ class Dashboard extends Component {
                   <Route path="/scopes/:id" exact component={ ScopeEdit } />
 
                   <Route path="/friends"    exact component={ Friends } />
+
+                  <Route path="/profile"    exact component={ Profile } />
                 </div>
               </div>
             </div>
@@ -59,7 +62,7 @@ class Dashboard extends Component {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
-                    Copyright © 2018 Dreamcore
+                    Copyright © 2019 Dreamcore
                   </div>
                   <div className="col-xl-5 col-lg-5 col-md-6 col-sm-6 col-12">
                     <div className="text-md-right footer-links d-none d-sm-block">

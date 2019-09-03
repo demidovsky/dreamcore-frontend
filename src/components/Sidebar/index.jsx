@@ -40,30 +40,30 @@ class Sidebar extends Component {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/actions" className="nav-link" activeClassName="active">
+                  <del to="/actions" className="nav-link text-gray">
                     <i className="fa fa-fw fa-list"></i>Actions
-                  </NavLink>
+                  </del>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/scopes" className="nav-link" activeClassName="active">
+                  <del to="/scopes" className="nav-link text-gray">
                     <i className="fa fa-fw fa-cubes"></i>Scopes
-                  </NavLink>
+                  </del>
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link" href="" title="Priorities">
+                  <del className="nav-link text-gray" href="" title="Priorities">
                     <i className="fa fa-fw fa-th-large"></i>Priorities
-                  </a>
+                  </del>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="" title="Streaks">
+                  <del className="nav-link text-gray" href="" title="Streaks">
                     <i className="fa fa-fw fa-grip-horizontal"></i>Streaks
-                  </a>
+                  </del>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="" title="Plan">
+                  <del className="nav-link text-gray" href="" title="Plan">
                     <i className="fa fa-fw fa-stream"></i>Plan
-                  </a>
+                  </del>
                 </li>
                 {/*<li className="nav-item"><a className="nav-link" href="" title="Finance">
                   <i className="fa fa-fw fa-money-bill-alt"></i>Finance</a>
@@ -74,8 +74,10 @@ class Sidebar extends Component {
 
                 <li className="nav-divider"> Collab </li>
 
-                <li className="nav-item"><a className="nav-link" href="" title="News">
-                  <i className="fa fa-fw fa-heartbeat"></i>News</a>
+                <li className="nav-item">
+                  <del className="nav-link text-gray" href="" title="News">
+                    <i className="fa fa-fw fa-heartbeat"></i>Feed
+                  </del>
                 </li>
                 {/*<li className="nav-item"><a className="nav-link" href="" title="Family">
                   <i className="fa fa-fw fa-home"></i>Groups</a>

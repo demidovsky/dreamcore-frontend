@@ -1,21 +1,58 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import achievements_screenshot from './achievements_screenshot.jpg';
+import friends_screenshot from './friends_screenshot.jpg';
 
-const Welcome = () =>
-  <div>
-    <h1>Getting started:</h1>
-    <h3>1. Define Scopes</h3>
-    <h3>2. Set some Achievements</h3>
-    <h3>3. Split them into Actions</h3>
+const Welcome = () => (
+  <Fragment>
+    <h2>Привет! Это альфа-версия Dreamcore</h2>
+    <p className="lead">
+      Что тут сейчас можно делать?
+    </p>
+    <div className="row">
 
-    <h1>Advanced:</h1>
-    <h3>4. Turn regular Actions into Streaks</h3>
-    <h3>5. Arrange actions using Priorities</h3>
+      <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div className="card">
+          <div className="card-body">
+            <h3 className="card-title mb-2">Создавать и выполнять ачивменты</h3>
+            <p className="card-text">
+              От (англ.) <i>achievement</i> &mdash; "достижение"; термин, уже устоявшийся
+              за долгую историю компьютерных игр.
+            </p>
+            <p>
+              Это некая цель, как правило, не являющаяся необходимой или критической, однако интересная или приятная для выполнения.
+            </p>
+            {/*<p>
+              Ачивменты &mdash; это способ принести геймификацию в реальную жизнь.
+            </p>*/}
+            <a href="/app/achievements" className="btn btn-primary">Перейти к модулю Achievements</a>
+            {/*<p className="text-muted">Last updated 3 mins ago</p>*/}
+          </div>
+          <img className="img-fluid" src={ achievements_screenshot } alt="Card image cap"/>
+        </div>
+      </div>
 
-    <h1>Socialize:</h1>
-    <h3>6. Create team</h3>
-    <h3>7. Invite collaborators</h3>
-    <h3>8. Share </h3>
-  </div>
-;
+      <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div className="card">
+          <div className="card-body">
+            <h3 className="card-title mb-2">Добавлять друзей и делиться с ними</h3>
+            <p className="card-text">
+              Так можно найти общие мечты, о которых вы даже не догадывались!
+              И вместе приступить к их реализации. 
+            </p>
+            <p className="card-text">
+              Изначально ваши ачивменты видны только вам.
+              Вы самостоятельно выбираете, какие из них сделать доступными для друзей.
+            </p>
+            <a href="/app/friends" className="btn btn-primary">Перейти к модулю Friends</a>
+            {/*<p className="text-muted">Last updated 3 mins ago</p>*/}
+          </div>
+          <img className="img-fluid" src={ friends_screenshot } alt="Card image cap"/>
+        </div>
+      </div>
+
+    </div>
+
+  </Fragment>
+);
 
 export default Welcome;
