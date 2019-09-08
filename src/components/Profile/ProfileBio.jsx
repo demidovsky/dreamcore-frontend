@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import noAvatar from './noAvatar.jpg';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
+import noAvatar from './../noAvatar.jpg';
 
 
 const BASE_URL = 'http://localhost:1337';

@@ -23,12 +23,12 @@
   opacity: 0.3;
   border: 3px dashed #71748d !important;
   transition: 0.3s opacity;
-  max-width: 150px;
+  /*max-width: 150px;*/
 }
 .card-add:hover { opacity: 1; }
 
 .card-add .btn {
-  width: 100%;
+  /*width: 100%;*/
 }
 
 .card-add-image {
@@ -50,7 +50,7 @@
 }
 
 .card .card-toolbar i {
-  opacity: 0;
+  opacity: 1; /*0;*/
   transition: opacity 0.3s;
 }
 

@@ -6,6 +6,7 @@ import FriendItem from './FriendItem';
 // import './scopes.css';
 import Toolbar from './../../Toolbar';
 import axios from 'axios';
+import './friends.css';
 
 const BASE_URL = 'http://localhost:1337';
 

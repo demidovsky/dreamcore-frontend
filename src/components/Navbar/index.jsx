@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from './dreamcore_logo_black.png';
 import './navbar.css';
-import noAvatar from './noAvatar.jpg';
+import noAvatar from './../noAvatar.jpg';
 
 const BASE_URL = 'http://localhost:1337';
 
@@ -100,10 +100,10 @@ class Navbar extends Component {
                     <h5 className="mb-0 text-white nav-user-name">
                       { this.state.isLoaded ? this.state.user.fullName : 'loading...' }
                     </h5>
-                    <span className="status"></span><span className="ml-2">Available</span>
+                    {/*<span className="status"></span><span className="ml-2">Available</span>*/}
                   </div>
                   <NavLink className="dropdown-item" to="/profile" onClick={ this.handleProfileRedirect }><i className="fas fa-user mr-2"></i>Profile</NavLink>
-                  <a className="dropdown-item" href="#"><i className="fas fa-cog mr-2"></i>Settings</a>
+                  {/*<a className="dropdown-item" href="#"><i className="fas fa-cog mr-2"></i>Settings</a>*/}
                   <a className="dropdown-item" href="#"><i className="fas fa-power-off mr-2"></i>Logout</a>
                 </div>
               </li>
