@@ -25,7 +25,7 @@
   transition: 0.3s opacity;
   /*max-width: 150px;*/
 }
-.card-add:hover { opacity: 1; }
+.card-add:hover, .card-add-focused { opacity: 1; }
 
 .card-add .btn {
   /*width: 100%;*/

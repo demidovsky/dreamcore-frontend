@@ -11,7 +11,8 @@ class FriendList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      request: ''
+      request: '',
+      isFocused: false
     };
   }
 
@@ -34,18 +35,28 @@ class FriendList extends Component {
       });
   }
 
+  onFocus = () => { this.setState({ isFocused: true }); }
+  onBlur = () => { this.setState({ isFocused: false }); }
 
   render() {
 
     const add = (
       <div className="col-sm-12 col-md-12 col-lg-6 col-xl-6" key="0">
-        <div className="card card-figure card-add">
+        <div className={ `card card-figure card-add
+          ${(this.state.isFocused || this.state.request) && 'card-add-focused'}` }>
             <div className="card-body">
             <h3 className="card-title">Add friend</h3>
               <div className="form-group">
                 <label className="col-form-label">User name:</label>
-                <input onChange={ e => this.newFriendRequest(e.currentTarget.value) } name="friend" 
-                  type="text" className="form-control" value={ this.state.request }/>
+                <input
+                  onChange={ e => this.newFriendRequest(e.currentTarget.value) }
+                  onFocus={ this.onFocus }
+                  onBlur={ this.onBlur }
+                  name="friend" 
+                  type="text"
+                  className="form-control"
+                  value={ this.state.request }
+                />
               </div>
               <span className="btn btn-lg btn-success" onClick={ this.addFriend }>Send request</span>
             </div>
@@ -68,7 +79,6 @@ class FriendList extends Component {
     );
   }
 }
-
 
 
 export default FriendList;
