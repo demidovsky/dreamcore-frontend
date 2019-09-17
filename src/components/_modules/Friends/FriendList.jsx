@@ -64,8 +64,8 @@ class FriendList extends Component {
       </div>
     );
 
-    const items =this. props.items ?this. props.items.map((item, index) => (
-      <div className={ `col-12 ${this. props.hasColumns ? 'col-sm-12 col-md-12 col-lg-6 col-xl-6' : '' }` } key={ (index + 1).toString() }>
+    const items = this.props.items ? this.props.items.map((item, index) => (
+      <div className={ `col-12 ${ this.props.hasColumns ? 'col-sm-12 col-md-12 col-lg-6 col-xl-6' : '' }` } key={ (index + 1).toString() }>
         <FriendItem item={ item } />
       </div>
       )

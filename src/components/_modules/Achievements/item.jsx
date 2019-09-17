@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, NavLink } from 'react-router-dom';
-import Toolbar from './../../Toolbar';
-import noImage from './no-image2.jpg';
 import axios from 'axios';
 import _ from 'lodash';
+
+import Toolbar from './../../Toolbar';
+import noImage from './no-image2.jpg';
+import badge from './victory.png';
 
 import layer0 from './glass/layer0_alpha.png';
 import layer1 from './glass/layer1_normal.png';
@@ -15,12 +17,6 @@ import layer5 from './glass/layer5_overlay.png';
 import layer6 from './glass/layer6_normal.png';
 
 const BASE_URL = 'http://localhost:1337/';
-
-const toolbarItems = {
-  edit: <span className="text-primary"><i className="fas fa-pen"></i> Edit</span>,
-  complete: <span className="text-success"><i className="fas fa-check"></i> Mark completed</span>,
-  delete: <span className="text-danger"><i className="fas fa-times"></i> Delete</span>,
-};
 
 var MASK = 'source-in';
 var NORMAL = 'source-over';
@@ -46,6 +42,7 @@ class AchievementItem extends React.Component {
     this.name = this.props.item.name;
     this.imageUrl = this.props.item.picture;
     this.state = {
+      isCompleted: this.props.item.isCompleted,
       redirect: null
     };
   }
@@ -85,33 +82,72 @@ class AchievementItem extends React.Component {
       }
       else
       {
-        console.log(item.img.width, item.img.height);
+        // console.log(item.img.width, item.img.height);
         ctx.drawImage(item.img, 0, 0, 600, 600, 0, 0, 300, 150);
       }
     });
   }
 
-  handleToolbar = (itemName) => {
+  handleToolbar = async (itemName) => {
     console.log(itemName, this.id);
     switch (itemName) {
-      case 'edit': this.setState({ redirect: `/achievements/${ this.id }` }); return;
-      case 'delete': {
-        axios.delete(`${ BASE_URL }achievements/${ this.id }`)
-          .then(response => {
-            console.log('deleted', response);
-            this.setState({ isDeleted: true });
-          })
-          .catch(error => {
-            console.error(error);
-          });
-        return;
-      }
+    case 'edit': this.setState({ redirect: `/achievements/${ this.id }` }); return;
+    case 'delete': {
+      axios.delete(`${ BASE_URL }achievements/${ this.id }`)
+        .then(response => {
+          console.log('deleted', response);
+          this.setState({ isDeleted: true });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      break;
     }
+    case 'complete': {
+      try {
+        await axios.patch(`${ BASE_URL }achievements/${ this.id }`, { isCompleted: true });
+        this.setState({ isCompleted: true });
+      } catch (err) {
+        console.error(err);
+      }
+      break;
+    }
+    case 'uncomplete': {
+      try {
+        await axios.patch(`${ BASE_URL }achievements/${ this.id }`, { isCompleted: false });
+        this.setState({ isCompleted: false });
+      } catch (err) {
+        console.error(err);
+      }
+      break;
+    }
+    }
+  }
+
+  getToolbarItems = () => {
+    const toolbarItems = {
+      edit: <span className="text-primary"><i className="fas fa-pen"></i> Edit</span>,
+      delete: <span className="text-danger"><i className="fas fa-times"></i> Delete</span>,
+    };
+
+    if (this.state.isCompleted) {
+      toolbarItems['uncomplete'] = <span className="text-warning"><i className="fas fa-check"></i> Mark not completed</span>;
+    } else {
+      toolbarItems['complete'] = <span className="text-success"><i className="fas fa-check"></i> Mark completed</span>;
+    }
+
+    if (this.state.isPublic) {
+      toolbarItems['hide'] = <span className="text-warning"><i className="fas fa-eye-slash"></i> Make private</span>;
+    } else {
+      toolbarItems['publish'] = <span className="text-warning"><i className="fas fa-eye"></i> Make public</span>;
+    }
+
+    return toolbarItems;
   }
 
   render () {
     if (this.state.redirect) {
-      return <Redirect to={ this.state.redirect } />
+      return <Redirect to={ this.state.redirect } />;
     }
 
     if (this.state.isDeleted) return null;
@@ -119,9 +155,10 @@ class AchievementItem extends React.Component {
     return (
       <NavLink to={ `/achievements/${ this.id }` } className="achievement-item">
         <div className="card-toolbar">
-          <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
+          <Toolbar items={ this.getToolbarItems() } onSelect={ this.handleToolbar } />
         </div>
-        <canvas ref={ node => { this.canvas = node; } }></canvas>
+        <canvas ref={ node => { this.canvas = node; } } />
+        {this.state.isCompleted && <img className="achievement-completed" src={ badge } />}
         <h6 className="figure-title text-center text-black">{ this.name }</h6>
       </NavLink>
     );

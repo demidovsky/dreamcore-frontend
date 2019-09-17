@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 function getDropdownItem (name, text, handler) {
-  return <DropdownItem key={ name } onClick={ () => { handler(name); } }>
+  return <DropdownItem key={ name } onClick={ (e) => { handler(name, e); } }>
     {text}
   </DropdownItem>
 }
@@ -13,38 +13,42 @@ class Toolbar extends React.Component {
     super(props);
 
     this.state = {
-      dropdownOpen: false
+      dropdownOpen: false,
     };
-
-    this.items = [];
-
-    for (var name in props.items) {
-      this.items.push(
-        getDropdownItem(name, props.items[name], this.handleSelect)
-      );
-    }
   }
 
-  handleSelect = (itemName) => {
-    this.props.onSelect(itemName)
+  handleSelect = (itemName, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.onSelect(itemName);
   }
 
-  toggle = () => {
+  toggle = (e) => {
+    e.stopPropagation();
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen
     }));
   }
 
   render () {
-    return (
+    const items = [];
+
+    for (var name in this.props.items) {
+      items.push(
+        getDropdownItem(name, this.props.items[name], this.handleSelect)
+      );
+    }
+
+    return ( 
       <Dropdown isOpen={ this.state.dropdownOpen } toggle={ this.toggle }>
-        <DropdownToggle className="btn-light dropdown-toolbar">
+        <DropdownToggle className="btn-light dropdown-toolbar" onClick={ e => { e.preventDefault(); e.stopPropagation(); } }>
           <i className="mdi mdi-dots-vertical"></i>
         </DropdownToggle>
-        <DropdownMenu right>
-          {this.items}
+        <DropdownMenu right onClick={ e => { e.preventDefault(); e.stopPropagation(); } }>
+          {items}
         </DropdownMenu>
       </Dropdown>
+
     );
   }
 }

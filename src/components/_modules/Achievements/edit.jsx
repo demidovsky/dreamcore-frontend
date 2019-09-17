@@ -73,8 +73,8 @@ class AchievementEdit extends React.Component {
       });
   }
 
-  onImageSet = (url) => {
-    this.setState({ picture: url });
+  onImageSet = (url, name) => {
+    this.setState({ picture: url, name });
   }
 
   expandTextarea = () => {
@@ -141,6 +141,7 @@ class AchievementEdit extends React.Component {
         <Formik enableReinitialize initialValues={ { ...this.state } } onSubmit={ this.save }>
           {({ values, errors, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
 
+            <React.Fragment>
             <form onSubmit={ handleSubmit } className="achievement-edit">
 
               <Row>
@@ -169,7 +170,7 @@ class AchievementEdit extends React.Component {
                         <label className="col-form-label">Name</label>
                         <input name="name" type="text" className="form-control achievement-input-name"
                           value={ values.name } maxLength="64" onChange={ handleChange } onBlur={ handleBlur }
-                          ref={ node => { this.name = node; } } />
+                          ref={ node => { this.name = node; } } autocomplete="off" />
                       </div>
                       <div className="form-group">
                         <label className="col-form-label">Description (criteria)</label>
@@ -199,7 +200,7 @@ class AchievementEdit extends React.Component {
 
                       </div>
                       <br/>
-                      <div className="form-group">
+                      <div className="form-group text-right">
                         <button disabled={ isSubmitting } type="submit" className="btn btn-lg btn-success">Save</button>
                       </div>
                     </div>
@@ -230,22 +231,25 @@ class AchievementEdit extends React.Component {
 
               </Row>
 
-            </form>)}
+          </form>
+
+            <Row>
+
+              <Col>
+                <div className="card achievement-image-select">
+                  <h3 className="card-header bg-dark text-white">Add Image</h3>
+                  <div className="card-body">
+                    <AchievementImage text={ values.name } onImageSet={ this.onImageSet }/>
+                  </div>
+                </div>
+              </Col>
+
+            </Row>
+          </React.Fragment>
+
+         )}
 
         </Formik>
-
-        <Row>
-
-          <Col>
-            <div className="card achievement-image-select">
-              <h3 className="card-header bg-dark text-white">Pick Image</h3>
-              <div className="card-body">
-                <AchievementImage text={ name } onImageSet={ this.onImageSet }/>
-              </div>
-            </div>
-          </Col>
-
-        </Row>
 
       </React.Fragment>)
   }

@@ -38,8 +38,8 @@ class Dashboard extends Component {
           <Sidebar onSidebarBlur={ this.onSidebarBlur } isSidebarOpen={ this.state.isSidebarOpen }/>
           <div className="dashboard-wrapper">
             <div className="container-fluid dashboard-content">
-              <div className="row">
-                <div className="col-xl-12">
+              {/*<div className="row">
+                <div className="col-xl-12">*/}
                   <Route path="/"        exact component={ Welcome } />
                   <Route path="/modules" exact component={ Modules } />
 
@@ -55,8 +55,8 @@ class Dashboard extends Component {
                   <Route path="/friends"    exact component={ Friends } />
 
                   <Route path="/profile"    exact component={ Profile } />
-                </div>
-              </div>
+                {/*</div>
+              </div>*/}
             </div>
             <div className="footer">
               <div className="container-fluid">
