@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import noAvatar from './../noAvatar.jpg';
-import Achievements from './../_modules/Achievements';
+// import Achievements from './../_modules/Achievements';
 
 const BASE_URL = 'http://localhost:1337';
 
@@ -115,7 +115,7 @@ class ProfileBio extends Component {
               </div>
             </div>
 
-<Achievements/>
+{/*<Achievements/>*/}
 
           </div>
           {/*<div className="border-top user-social-box">

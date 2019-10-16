@@ -126,20 +126,20 @@ class AchievementItem extends React.Component {
 
   getToolbarItems = () => {
     const toolbarItems = {
-      edit: <span className="text-primary"><i className="fas fa-pen"></i> Edit</span>,
+      edit: <span className="text-success"><i className="fas fa-pen"></i> Edit</span>,
       delete: <span className="text-danger"><i className="fas fa-times"></i> Delete</span>,
     };
 
     if (this.state.isCompleted) {
-      toolbarItems['uncomplete'] = <span className="text-warning"><i className="fas fa-check"></i> Mark not completed</span>;
+      toolbarItems['uncomplete'] = <span className="text-primary"><i className="fas fa-check"></i> Mark incomplete</span>;
     } else {
-      toolbarItems['complete'] = <span className="text-success"><i className="fas fa-check"></i> Mark completed</span>;
+      toolbarItems['complete'] = <span className="text-primary"><i className="fas fa-check"></i> Mark completed</span>;
     }
 
     if (this.state.isPublic) {
-      toolbarItems['hide'] = <span className="text-warning"><i className="fas fa-eye-slash"></i> Make private</span>;
+      toolbarItems['hide'] = <span className="text-primary"><i className="fas fa-eye-slash"></i> Make private</span>;
     } else {
-      toolbarItems['publish'] = <span className="text-warning"><i className="fas fa-eye"></i> Make public</span>;
+      toolbarItems['publish'] = <span className="text-primary"><i className="fas fa-eye"></i> Make public</span>;
     }
 
     return toolbarItems;

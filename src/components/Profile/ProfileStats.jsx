@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const LOADING = 'loading...';
+const LOADING = '?'; // 'loading...';
 
 class ProfileStats extends Component {
   componentDidMount() {
@@ -40,7 +40,7 @@ class ProfileStats extends Component {
           <div className="card-body">
             <div className="d-inline-block">
               <h5 className="text-muted">Friends</h5>
-              <h2 className="mb-0">{ this.props.friends ? this.props.friends.length : LOADING }</h2>
+              <h2 className="mb-0">{ this.props.friends || LOADING }</h2>
             </div>
             <div className="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
               <i className="fa fa-handshake fa-fw fa-sm text-secondary"></i>

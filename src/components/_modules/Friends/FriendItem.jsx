@@ -16,7 +16,8 @@ const BASE_URL = 'http://localhost:1337';
 class FriendItem extends React.Component {
   constructor (props) {
     super(props);
-    this.id = this.props.item.id;
+    this.friendshipId = this.props.item.friendshipId;
+    this.friendId = this.props.item.friendId;
     // this.name = this.props.item.name;
     // this.notes = this.props.item.notes;
     this.achievements = this.props.item.achievements;
@@ -25,6 +26,7 @@ class FriendItem extends React.Component {
     // this.imageUrl = this.props.item.picture;
     this.fullName = this.props.item.fullName;
     this.friendshipType = this.props.item.friendshipType;
+    this.friendSince = this.props.item.friendSince;
     this.state = {
       isDeleted: false,
       isConfirmed: this.props.item.isConfirmed,
@@ -33,7 +35,7 @@ class FriendItem extends React.Component {
   }
 
   delete = () => {
-    axios.delete(`${ BASE_URL }/friends/${ this.id }`)
+    axios.delete(`${ BASE_URL }/friends/${ this.friendshipId }`)
       .then(response => {
         console.log('deleted', response);
         this.setState({ isDeleted: true });
@@ -45,7 +47,7 @@ class FriendItem extends React.Component {
 
   confirm = async () => {
     try {
-      await axios.post(`${ BASE_URL }/friends/${ this.id }`);
+      await axios.post(`${ BASE_URL }/friends/${ this.friendshipId }`);
       this.setState({ isConfirmed: true });
     } catch (error) {
       console.error(error);
@@ -71,7 +73,10 @@ class FriendItem extends React.Component {
     if (this.state.isDeleted) return null;
 
     let friendshipStatus = '';
-    if (!this.state.isConfirmed) {
+    if (this.state.isConfirmed) {
+      const date = this.friendSince ? new Date(this.friendSince).toLocaleDateString() : 'unknown date';
+      friendshipStatus = `friends since ${date}`;
+    } else {
       friendshipStatus = 'not confirmed';
       if (this.friendshipType === 'from_me') friendshipStatus = 'request sent';
       if (this.friendshipType === 'to_me') friendshipStatus = 'await your confirmation';
@@ -90,20 +95,30 @@ class FriendItem extends React.Component {
               <Toolbar items={ toolbarItems } onSelect={ this.handleToolbar } />
             </div>
 
+            {this.state.isConfirmed ?
             <div className="media mb-3">
-              <NavLink to={ `/friends/${ this.id }` } className="user-avatar user-avatar-floated user-avatar-xl float-left mr-3">
+              <NavLink to={ `/friends/${ this.friendId }` } className="user-avatar user-avatar-floated user-avatar-xl float-left mr-3">
                 <img src={ virtualUser } alt="User Avatar" className="rounded-circle user-avatar-xl"/>
               </NavLink>
               <div className="media-body">
                 <h3 className="card-title mb-2 mt-2">
-                  <NavLink to={ `/friends/${ this.id }` } className="">{ this.fullName }</NavLink>
+                  <NavLink to={ `/friends/${ this.friendId }` } className="">{ this.fullName }</NavLink>
                 </h3>
                 <h6 className="card-subtitle text-muted"> { friendshipStatus } </h6>
               </div>
-              
-              {/*<button className="btn btn-sm btn-secondary">
-                <i className="fa fa-fw fa-plus"></i> Follow</button>*/}
             </div>
+            :
+            <div className="media mb-3">
+              <span className="user-avatar user-avatar-floated user-avatar-xl float-left mr-3">
+                <img src={ virtualUser } alt="User Avatar" className="rounded-circle user-avatar-xl"/>
+              </span>
+              <div className="media-body">
+                <h3 className="card-title mb-2 mt-2">
+                  <span className="">{ this.fullName }</span>
+                </h3>
+                <h6 className="card-subtitle text-muted"> { friendshipStatus } </h6>
+              </div>
+            </div>}
 
             {(this.state.isConfirmed || this.friendshipType === 'to_me') &&
             <div className="row text-center">

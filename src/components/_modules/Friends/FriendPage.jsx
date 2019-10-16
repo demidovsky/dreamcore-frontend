@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import PageHeader from './../PageHeader';
-import ProfileBio from './ProfileBio';
-import ProfileStats from './ProfileStats';
 import axios from 'axios';
-import './profile.css';
+import PageHeader from './../../PageHeader';
+import ProfileBio from './../../Profile/ProfileBio';
+import ProfileStats from './../../Profile/ProfileStats';
+import './../../Profile/profile.css';
 
 const BASE_URL = 'http://localhost:1337';
 
@@ -12,14 +12,15 @@ class Profile extends Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false, //null,
+      isLoaded: false,
+      id: parseInt(props.match.params.id, 10),
       user: null,
       friends: null
     };
   }
 
   componentDidMount () {
-    fetch(`${ BASE_URL }/profile`)
+    fetch(`${ BASE_URL }/profile/${this.state.id}`)
       .then(res => res.json())
       .then(
         result => {
@@ -40,32 +41,32 @@ class Profile extends Component {
         }
       );
 
-    axios.get(`${ BASE_URL }/friends`)
-    // .then(res => res.json())
-    .then(
-      result => {
-        console.log(result);
-        this.setState({
-          isLoaded: true,
-          friends: result.data.length
-        });
-      },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: false,
-            error
-          });
-        }
-      )
+    // axios.get(`${ BASE_URL }/friends`)
+    // // .then(res => res.json())
+    // .then(
+    //   result => {
+    //     console.log(result);
+    //     this.setState({
+    //       isLoaded: true,
+    //       friends: result.data
+    //     });
+    //   },
+    //     // Note: it's important to handle errors here
+    //     // instead of a catch() block so that we don't swallow
+    //     // exceptions from actual bugs in components.
+    //     error => {
+    //       this.setState({
+    //         isLoaded: false,
+    //         error
+    //       });
+    //     }
+    //   )
   }
 
   render () {
     return (
       <Fragment>
-        <PageHeader breadcrumps={ ['Profile'] } />
+        <PageHeader breadcrumps={ ['Friends', this.state.user ? this.state.user.fullName : null] } />
 
         {this.state.isLoaded === false ? 
           <div className="alert alert-danger" role="alert">

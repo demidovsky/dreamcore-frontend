@@ -14,6 +14,7 @@ import Actions from './../_modules/Actions';
 import Scopes from './../_modules/Scopes';
 import ScopeEdit from './../_modules/Scopes/edit';
 import Friends from './../_modules/Friends';
+import FriendPage from './../_modules/Friends/FriendPage';
 
 
 class Dashboard extends Component {
@@ -53,6 +54,7 @@ class Dashboard extends Component {
                   <Route path="/scopes/:id" exact component={ ScopeEdit } />
 
                   <Route path="/friends"    exact component={ Friends } />
+                  <Route path="/friends/:id"    exact component={ FriendPage } />
 
                   <Route path="/profile"    exact component={ Profile } />
                 {/*</div>

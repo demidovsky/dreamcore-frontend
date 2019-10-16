@@ -93,10 +93,15 @@ class Modules extends React.Component {
             Cannot load modules info
           </div>
           :
-          <ModulesList items={ items || this.state.items } /> }
+          <div>
+            To be done
+          </div>
+        }
       </React.Fragment>
     );
   }
 }
+
+/*<ModulesList items={ items || this.state.items } />*/
 
 export default Modules;
