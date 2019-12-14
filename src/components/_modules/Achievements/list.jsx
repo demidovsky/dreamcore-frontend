@@ -44,7 +44,7 @@ function AchievementList (props) {
         </div>
 
       <div className="row achievements-completed achievements-bg pt-4 pb-4" style={ { backgroundImage: `url(${ bg })` } }>
-        <h1 className="achievements-completed-year col-12 text-white text-right"><span>2019</span></h1>
+        <h1 className="achievements-completed-year col-12 text-white text-right"><span>2020</span></h1>
         {itemsCompleted}
       </div>
     </Fragment>

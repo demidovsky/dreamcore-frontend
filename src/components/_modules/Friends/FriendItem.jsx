@@ -102,9 +102,10 @@ class FriendItem extends React.Component {
               </NavLink>
               <div className="media-body">
                 <h3 className="card-title mb-2 mt-2">
-                  <NavLink to={ `/friends/${ this.friendId }` } className="">{ this.fullName }</NavLink>
+                  <NavLink to={ `/friends/${ this.friendId }` } className="friend-item-name">{ this.fullName }</NavLink>
                 </h3>
-                <h6 className="card-subtitle text-muted"> { friendshipStatus } </h6>
+                {/*<h6 className="card-subtitle text-muted"> { friendshipStatus } </h6>*/}
+                <span class="badge badge-success text-white">{ friendshipStatus }</span>
               </div>
             </div>
             :
@@ -114,9 +115,10 @@ class FriendItem extends React.Component {
               </span>
               <div className="media-body">
                 <h3 className="card-title mb-2 mt-2">
-                  <span className="">{ this.fullName }</span>
+                  <span className="friend-item-name">{ this.fullName }</span>
                 </h3>
-                <h6 className="card-subtitle text-muted"> { friendshipStatus } </h6>
+                {/*<h6 className="card-subtitle text-muted"> { friendshipStatus } </h6>*/}
+                <span class="badge badge-warning text-white">{ friendshipStatus }</span>
               </div>
             </div>}
 

@@ -12,3 +12,8 @@
   font-size: 24px;
   color: #444;
 }
+
+.friend-item-name {
+  font-weight: 500;
+  color: #3d405c;
+}

@@ -64,11 +64,11 @@ class Dashboard extends Component {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
-                    Copyright © 2019 Dreamcore
+                    Copyright © 2020 Dreamcore
                   </div>
                   <div className="col-xl-5 col-lg-5 col-md-6 col-sm-6 col-12">
                     <div className="text-md-right footer-links d-none d-sm-block">
-                      <a href="">About</a>
+                      <a href="/">About</a>
                       <a href="">Support</a>
                       <a href="">Contact Us</a>
                     </div>

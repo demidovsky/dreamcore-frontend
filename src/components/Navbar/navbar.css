@@ -1,0 +1,19 @@
+.navbar .user-avatar-md {
+  box-shadow: inset 0 0 20px #eee;
+}
+
+.nav-user-img-name {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-collapse {
+    flex-basis: auto;
+    flex-grow: 1;
+    text-align: right;
+  }
+
+  .navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+}

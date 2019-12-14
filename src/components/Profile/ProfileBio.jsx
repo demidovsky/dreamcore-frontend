@@ -69,7 +69,7 @@ class ProfileBio extends Component {
 
               {this.props.isFriendProfile ?
                 <div className="text-center" style={{}}>
-                  <div style={{ backgroundImage: `url(${avatar})`, boxShadow: 'inset 0 0 20px #eee' }} alt="User Avatar" className="rounded-circle user-avatar user-avatar-xxl"/>
+                  <div className="profile-bio-avatar" style={{ backgroundImage: `url(${avatar})` }} alt="User Avatar" className="rounded-circle user-avatar user-avatar-xxl"/>
                 </div>
                 :
                 <Dropzone onDrop={acceptedFiles => this.uploadAvatar(acceptedFiles)}>
@@ -78,7 +78,7 @@ class ProfileBio extends Component {
                       <div {...getRootProps()}>
                         <input {...getInputProps()} />
                         <div className="text-center" style={{}}>
-                          <div style={{ backgroundImage: `url(${avatar})`, boxShadow: 'inset 0 0 20px #eee' }} alt="User Avatar" className="rounded-circle user-avatar user-avatar-xxl"/>
+                          <div className="profile-bio-avatar" style={{ backgroundImage: `url(${avatar})` }} alt="User Avatar" className="rounded-circle user-avatar user-avatar-xxl"/>
                         </div>
                       </div>
                     </section>

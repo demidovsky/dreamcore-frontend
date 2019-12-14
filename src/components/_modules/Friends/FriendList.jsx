@@ -11,11 +11,16 @@ class FriendList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      items: props.items,
       request: '',
       isFocused: false
     };
   }
 
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevProps.items.length) this.setState({ items: this.props.items });
+  }
 
   newFriendRequest = (request) => {
     console.log(request);
@@ -28,6 +33,9 @@ class FriendList extends Component {
     axios.post(`${ BASE_URL }/friends`, { request: this.state.request })
       .then(response => {
         console.log('created', response);
+        this.setState(prevState => ({
+          items: [...prevState.items, response]
+        }));
         return response;
       })
       .catch(error => {
@@ -64,7 +72,7 @@ class FriendList extends Component {
       </div>
     );
 
-    const items = this.props.items ? this.props.items.map((item, index) => (
+    const items = this.state.items ? this.state.items.map((item, index) => (
       <div className={ `col-12 ${ this.props.hasColumns ? 'col-sm-12 col-md-12 col-lg-6 col-xl-6' : '' }` } key={ (index + 1).toString() }>
         <FriendItem item={ item } />
       </div>
