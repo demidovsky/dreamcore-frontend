@@ -24,7 +24,7 @@ class Profile extends Component {
       .then(res => res.json())
       .then(
         result => {
-          console.log(result);
+          console.log('friend', result);
           this.setState({
             isLoaded: true,
             user: result
@@ -74,8 +74,8 @@ class Profile extends Component {
           </div>
           :
           <Fragment>
-            <ProfileBio user={ this.state.user } />
-            <ProfileStats user={ this.state.user } friends={ this.state.friends }/>
+            <ProfileBio user={ this.state.user } isFriendProfile />
+            <ProfileStats user={ this.state.user } friends={ this.state.friends } />
           </Fragment>
         }
       </Fragment>

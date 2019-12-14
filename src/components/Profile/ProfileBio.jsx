@@ -67,18 +67,23 @@ class ProfileBio extends Component {
           <div className="row">
             <div className="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-12">
 
-              <Dropzone onDrop={acceptedFiles => this.uploadAvatar(acceptedFiles)}>
-                {({getRootProps, getInputProps}) => (
-                  <section>
-                    <div {...getRootProps()}>
-                      <input {...getInputProps()} />
-                      <div className="text-center" style={{}}>
-                        <div style={{ backgroundImage: `url(${avatar})` }} alt="User Avatar" className="rounded-circle user-avatar user-avatar-xxl"/>
+              {this.props.isFriendProfile ?
+                <div className="text-center" style={{}}>
+                  <div style={{ backgroundImage: `url(${avatar})`, boxShadow: 'inset 0 0 20px #eee' }} alt="User Avatar" className="rounded-circle user-avatar user-avatar-xxl"/>
+                </div>
+                :
+                <Dropzone onDrop={acceptedFiles => this.uploadAvatar(acceptedFiles)}>
+                  {({getRootProps, getInputProps}) => (
+                    <section>
+                      <div {...getRootProps()}>
+                        <input {...getInputProps()} />
+                        <div className="text-center" style={{}}>
+                          <div style={{ backgroundImage: `url(${avatar})`, boxShadow: 'inset 0 0 20px #eee' }} alt="User Avatar" className="rounded-circle user-avatar user-avatar-xxl"/>
+                        </div>
                       </div>
-                    </div>
-                  </section>
-                )}
-              </Dropzone>
+                    </section>
+                  )}
+                </Dropzone>}
               
               </div>
               <div className="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-12">

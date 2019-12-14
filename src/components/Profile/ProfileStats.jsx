@@ -4,9 +4,14 @@ const LOADING = '?'; // 'loading...';
 
 class ProfileStats extends Component {
   componentDidMount() {
-    
+    console.log('ProfileStats', this.props);
   }
   render() {
+    const friends = this.props.friends || this.props.user.friendships || LOADING;
+    const achievements = this.props.user ? (this.props.user.achievements.length || this.props.user.achievements) : LOADING;
+
+    console.log(friends, achievements);
+
   return (
     <div className="row">
       <div className="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
@@ -14,7 +19,7 @@ class ProfileStats extends Component {
           <div className="card-body">
             <div className="d-inline-block">
               <h5 className="text-muted">Achievements</h5>
-              <h2 className="mb-0">{ this.props.user ? this.props.user.achievements.length : LOADING }</h2>
+              <h2 className="mb-0">{ achievements }</h2>
             </div>
             <div className="float-right icon-circle-medium  icon-box-lg  bg-info-light mt-1">
               <i className="fa fa-eye fa-fw fa-sm text-info"></i>
@@ -40,7 +45,7 @@ class ProfileStats extends Component {
           <div className="card-body">
             <div className="d-inline-block">
               <h5 className="text-muted">Friends</h5>
-              <h2 className="mb-0">{ this.props.friends || LOADING }</h2>
+              <h2 className="mb-0">{ friends }</h2>
             </div>
             <div className="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
               <i className="fa fa-handshake fa-fw fa-sm text-secondary"></i>

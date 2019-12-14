@@ -92,6 +92,7 @@ class Navbar extends Component {
               </li>*/}
               <li className="nav-item dropdown nav-user">
                 <a className="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onClick={ this.handleProfileClick }>
+                  <span className="mr-2">{ this.state.isLoaded ? this.state.user.fullName : 'loading...' }</span>
                   <img src={ this.state.isLoaded && this.state.user.avatar
                     ? `${BASE_URL}${this.state.user.avatar}` : noAvatar } alt="" className="user-avatar-md rounded-circle"/>
                 </a>

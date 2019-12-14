@@ -22,18 +22,18 @@ const add = (
 );
 
 function AchievementList (props) {
-
-  const itemsCompleted = props.items.filter(item => item.isCompleted).map((item, index) => (
+  console.log('ITEMS', props.items);
+  const itemsCompleted = props.items && props.items.length ? props.items.filter(item => item.isCompleted).map((item, index) => (
     <div className="col-xl-auto col-lg-auto col-md-4 col-sm-4 col-6 text-center" key={ (index + 1).toString() }>
       <AchievementItem item={ item } />
     </div>
-  ));
+  )) : [];
 
-  const itemsIncomplete = props.items.filter(item => !item.isCompleted).map((item, index) => (
+  const itemsIncomplete = props.items && props.items.length ? props.items.filter(item => !item.isCompleted).map((item, index) => (
     <div className="col-xl-auto col-lg-auto col-md-4 col-sm-4 col-6 text-center" key={ (index + 1).toString() }>
       <AchievementItem item={ item } />
     </div>
-  ));
+  )) : [];
 
   itemsIncomplete.push(add);
 
