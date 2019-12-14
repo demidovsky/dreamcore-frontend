@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import FriendItem from './FriendItem';
 
-const BASE_URL = 'http://localhost:1337';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 class FriendList extends Component {

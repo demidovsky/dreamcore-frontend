@@ -16,7 +16,7 @@ import layer4 from './glass/layer4_linearburn.png';
 import layer5 from './glass/layer5_overlay.png';
 import layer6 from './glass/layer6_normal.png';
 
-const BASE_URL = 'http://localhost:1337/';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 var MASK = 'source-in';
 var NORMAL = 'source-over';
@@ -93,7 +93,7 @@ class AchievementItem extends React.Component {
     switch (itemName) {
     case 'edit': this.setState({ redirect: `/achievements/${ this.id }` }); return;
     case 'delete': {
-      axios.delete(`${ BASE_URL }achievements/${ this.id }`)
+      axios.delete(`${ BASE_URL }/achievements/${ this.id }`)
         .then(response => {
           console.log('deleted', response);
           this.setState({ isDeleted: true });
@@ -105,7 +105,7 @@ class AchievementItem extends React.Component {
     }
     case 'complete': {
       try {
-        await axios.patch(`${ BASE_URL }achievements/${ this.id }`, { isCompleted: true });
+        await axios.patch(`${ BASE_URL }/achievements/${ this.id }`, { isCompleted: true });
         this.setState({ isCompleted: true });
       } catch (err) {
         console.error(err);
@@ -114,7 +114,7 @@ class AchievementItem extends React.Component {
     }
     case 'uncomplete': {
       try {
-        await axios.patch(`${ BASE_URL }achievements/${ this.id }`, { isCompleted: false });
+        await axios.patch(`${ BASE_URL }/achievements/${ this.id }`, { isCompleted: false });
         this.setState({ isCompleted: false });
       } catch (err) {
         console.error(err);

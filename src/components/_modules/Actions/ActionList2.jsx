@@ -5,7 +5,7 @@ import ActionItem from './ActionItem';
 import Toolbar from './../../Toolbar';
 
 
-const BASE_URL = 'http://localhost:1337';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 const toolbarItems = {

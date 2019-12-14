@@ -3,7 +3,7 @@ import { Redirect, NavLink, Link } from 'react-router-dom';
 import ScopeItem from './ScopeItem';
 
 
-const BASE_URL = 'http://localhost:1337/';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 const add = (

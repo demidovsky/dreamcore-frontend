@@ -7,7 +7,7 @@ const toolbarItems = {
   delete: <span className="text-danger"><i className="fas fa-times"></i> Delete</span>,
 };
 
-const BASE_URL = 'http://localhost:1337';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 class ScopeItem extends React.Component {
@@ -48,7 +48,7 @@ class ScopeItem extends React.Component {
 
     if (this.state.isDeleted) return null;
 
-          // style={ { backgroundImage: `url(${ 'http://localhost:1337' }${ this.imageUrl })` } }>
+          // style={ { backgroundImage: `url(${ process.env.REACT_APP_BASE_URL }${ this.imageUrl })` } }>
     return (
       <NavLink to={ `/scopes/${ this.id }` } className="scope-item">
 

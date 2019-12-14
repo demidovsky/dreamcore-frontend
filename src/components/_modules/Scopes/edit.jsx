@@ -8,7 +8,7 @@ import PageHeader from './../../PageHeader';
 import noImage from './../Achievements/no-image.jpg';
 import AchievementImage from './../Achievements/image';
 
-const BASE_URL = 'http://localhost:1337/';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class ScopeEdit extends React.Component {
   constructor (props) {

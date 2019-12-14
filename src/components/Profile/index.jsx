@@ -5,7 +5,7 @@ import ProfileStats from './ProfileStats';
 import axios from 'axios';
 import './profile.css';
 
-const BASE_URL = 'http://localhost:1337';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class Profile extends Component {
   constructor (props) {

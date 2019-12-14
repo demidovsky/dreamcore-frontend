@@ -4,13 +4,13 @@ import FileInput from './../../FileInput'
 import { Formik } from 'formik'
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:1337/';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class ImageFromFile extends React.Component {
   onSubmit = (values, { setSubmitting }) => {
     console.log('submit', values);
     setSubmitting(true);
-    const url = `${ BASE_URL }image/upload`;
+    const url = `${ BASE_URL }/image/upload`;
     const formData = new FormData();
     formData.append('image', values.file);
 

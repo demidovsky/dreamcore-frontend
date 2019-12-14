@@ -8,7 +8,7 @@ import PageHeader from './../../PageHeader';
 import noImage from './../Achievements/no-image.jpg';
 import AchievementImage from './../Achievements/image';
 
-const BASE_URL = 'http://localhost:1337/';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class ScopeEdit extends React.Component {
   constructor (props) {
@@ -20,7 +20,7 @@ class ScopeEdit extends React.Component {
 
   save = (values, { setSubmitting }) => {
     const method = this.state.id ? 'patch' : 'post';
-    const url = `${BASE_URL}scopes/${ this.state.id || '' }`;
+    const url = `${BASE_URL}/scopes/${ this.state.id || '' }`;
 
     axios[method](url, {
       name: values.name,
@@ -37,7 +37,7 @@ class ScopeEdit extends React.Component {
   }
 
   load = (id) => {
-    axios.get(`${ BASE_URL }scopes/${ id }`)
+    axios.get(`${ BASE_URL }/scopes/${ id }`)
       .then(response => {
         console.log('loaded', response);
         this.setState({ isLoaded: true, ...response.data });

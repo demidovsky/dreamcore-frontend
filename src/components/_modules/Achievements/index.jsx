@@ -3,7 +3,7 @@ import PageHeader from './../../PageHeader';
 import AchievementList from './list';
 import './achievements.css';
 
-const BASE_URL = 'http://localhost:1337/';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class Achievements extends Component {
   constructor (props) {
@@ -16,7 +16,7 @@ class Achievements extends Component {
   }
 
   componentDidMount () {
-    fetch(`${BASE_URL}achievements/`)
+    fetch(`${BASE_URL}/achievements/`)
       .then(res => res.json())
       .then(
         result => {

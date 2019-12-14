@@ -27,7 +27,7 @@ class ActionItem extends React.Component {
 
     if (this.state.isDeleted) return null;
 
-          // style={ { backgroundImage: `url(${ 'http://localhost:1337' }${ this.imageUrl })` } }>
+          // style={ { backgroundImage: `url(${ process.env.REACT_APP_BASE_URL }${ this.imageUrl })` } }>
     return (
       <NavLink to={ `/actions/${ this.id }` } className="scope-item">
         <div className="card-toolbar">

@@ -10,7 +10,7 @@ const toolbarItems = {
   delete: <span className="text-danger"><i className="fas fa-times"></i> Remove</span>,
 };
 
-const BASE_URL = 'http://localhost:1337';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 class FriendItem extends React.Component {
