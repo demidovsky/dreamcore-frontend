@@ -8,9 +8,15 @@ class ProfileStats extends Component {
   }
   render() {
     const friends = this.props.friends || this.props.user.friendships || LOADING;
-    const achievements = this.props.user ? (this.props.user.achievements.length || this.props.user.achievements) : LOADING;
+    let achievements = LOADING;
+    if (this.props.user) {
+      achievements = this.props.user.achievements;
+      if (typeof this.props.user.achievements !== 'number') {
+        achievements = this.props.user.achievements.length;
+      }
+    }
 
-    console.log(friends, achievements);
+    console.log('friends', friends, 'achievements', achievements);
 
   return (
     <div className="row">

@@ -84,7 +84,7 @@ class ProfileBio extends Component {
                     </section>
                   )}
                 </Dropzone>}
-              
+
               </div>
               <div className="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-12">
                 <div className="user-avatar-info">

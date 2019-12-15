@@ -105,7 +105,7 @@ class FriendItem extends React.Component {
                   <NavLink to={ `/friends/${ this.friendId }` } className="friend-item-name">{ this.fullName }</NavLink>
                 </h3>
                 {/*<h6 className="card-subtitle text-muted"> { friendshipStatus } </h6>*/}
-                <span class="badge badge-success text-white">{ friendshipStatus }</span>
+                <span className="badge badge-success text-white">{ friendshipStatus }</span>
               </div>
             </div>
             :
@@ -118,7 +118,7 @@ class FriendItem extends React.Component {
                   <span className="friend-item-name">{ this.fullName }</span>
                 </h3>
                 {/*<h6 className="card-subtitle text-muted"> { friendshipStatus } </h6>*/}
-                <span class="badge badge-warning text-white">{ friendshipStatus }</span>
+                <span className="badge badge-warning text-white">{ friendshipStatus }</span>
               </div>
             </div>}
 

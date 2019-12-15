@@ -136,11 +136,11 @@ class AchievementItem extends React.Component {
       toolbarItems['complete'] = <span className="text-primary"><i className="fas fa-check"></i> Mark completed</span>;
     }
 
-    if (this.state.isPublic) {
+/*    if (this.state.isPublic) {
       toolbarItems['hide'] = <span className="text-primary"><i className="fas fa-eye-slash"></i> Make private</span>;
     } else {
       toolbarItems['publish'] = <span className="text-primary"><i className="fas fa-eye"></i> Make public</span>;
-    }
+    }*/
 
     return toolbarItems;
   }
