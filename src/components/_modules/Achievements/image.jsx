@@ -6,6 +6,8 @@ import ImageFromFlickr from './fromFlickr';
 import ImageFromFile from './fromFile';
 import ImageFromURL from './fromURL';
 
+import flickr from './flickr.svg';
+
 class AchievementImage extends React.Component {
   constructor (props) {
     super(props);
@@ -21,7 +23,7 @@ class AchievementImage extends React.Component {
                 <Nav.Link eventKey="from-file">From file</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="from-flickr">From Flickr</Nav.Link>
+                <Nav.Link eventKey="from-flickr">From <img className="ml-1 mb-1" alt="Flickr" height="16" src={ flickr }/></Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="from-url">From URL</Nav.Link>

@@ -184,6 +184,7 @@
 
 .achievements-completed {
   position: relative;
+  min-height: 70px;
 }
 
 .achievements-completed-year {
@@ -197,4 +198,11 @@
 
 .achievements-completed .achievement-item .dropdown-toolbar > i {
   color: #fff;
+}
+
+.achievement-image-select .nav-pills .nav-link.active,
+.achievement-image-select .nav-pills .show > .nav-link {
+  background-color: #dde;
+  border-color: #444;
+  color: #444;
 }

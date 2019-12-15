@@ -1,6 +1,7 @@
 import React from 'react';
 import Flickr from 'flickr-sdk';
 import _ from 'lodash';
+import logo from './flickr.svg';
 
 const API_KEY = '030eecfb70548131bdf6d6a6e5705a14';
 const SECRET = 'c7d2f33ef111cf67';
@@ -121,6 +122,7 @@ class ImageFromFlickr extends React.Component {
     return (
       <React.Fragment>
         <div className="form-group">
+          {/*<img src={ logo } alt=""/>*/}
           <label htmlFor="inputSmall" className="col-form-label pt-0">Find by keywords</label>
           <div className="input-group">
             <input type="text"
