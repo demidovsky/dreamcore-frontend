@@ -25,7 +25,11 @@ class ImageFromFlickr extends React.Component {
       flickr.photos.search({
         text: text,
         page: 1,
-        per_page: 5
+        per_page: 5,
+        safe_search: 1,
+        // content_type: 1,
+        sort: 'relevance',
+        // sort: 'interestingness-desc'
       })
       .then(result => {
         console.log('Got result');
