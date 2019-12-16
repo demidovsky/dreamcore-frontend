@@ -11,7 +11,7 @@ class FriendList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: props.items,
+      items: null,
       request: '',
       isFocused: false
     };
@@ -19,7 +19,7 @@ class FriendList extends Component {
 
 
   componentDidUpdate(prevProps, prevState) {
-    if (!prevProps.items.length) this.setState({ items: this.props.items });
+    if (!prevProps.items) this.setState({ items: this.props.items });
   }
 
   newFriendRequest = (request) => {
@@ -60,7 +60,7 @@ class FriendList extends Component {
                   onChange={ e => this.newFriendRequest(e.currentTarget.value) }
                   onFocus={ this.onFocus }
                   onBlur={ this.onBlur }
-                  name="friend" 
+                  name="friend"
                   type="text"
                   className="form-control"
                   value={ this.state.request }
