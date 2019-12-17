@@ -47,7 +47,7 @@ class Profile extends Component {
         console.log(result);
         this.setState({
           isLoaded: true,
-          friends: result.data.length
+          friends: result.data.filter(item => item.isConfirmed).length
         });
       },
         // Note: it's important to handle errors here
@@ -67,7 +67,7 @@ class Profile extends Component {
       <Fragment>
         <PageHeader breadcrumps={ ['Profile'] } />
 
-        {this.state.isLoaded === false ? 
+        {this.state.isLoaded === false ?
           <div className="alert alert-danger" role="alert">
             Cannot load profile info
           </div>

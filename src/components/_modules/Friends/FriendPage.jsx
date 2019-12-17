@@ -7,7 +7,7 @@ import './../../Profile/profile.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-class Profile extends Component {
+class FriendPage extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -68,7 +68,7 @@ class Profile extends Component {
       <Fragment>
         <PageHeader breadcrumps={ ['Friends', this.state.user ? this.state.user.fullName : null] } />
 
-        {this.state.isLoaded === false ? 
+        {this.state.isLoaded === false ?
           <div className="alert alert-danger" role="alert">
             Cannot load profile info
           </div>
@@ -83,4 +83,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default FriendPage;

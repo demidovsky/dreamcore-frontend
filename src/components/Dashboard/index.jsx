@@ -57,6 +57,7 @@ class Dashboard extends Component {
                   <Route path="/friends/:id"    exact component={ FriendPage } />
 
                   <Route path="/profile"    exact component={ Profile } />
+                  <Route path="/profile/:id"    exact component={ FriendPage } />
                 {/*</div>
               </div>*/}
             </div>

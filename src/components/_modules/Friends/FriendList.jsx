@@ -19,7 +19,7 @@ class FriendList extends Component {
 
 
   componentDidUpdate(prevProps, prevState) {
-    if (!prevProps.items) this.setState({ items: this.props.items });
+    if (!prevState.items) this.setState({ items: this.props.items });
   }
 
   newFriendRequest = (request) => {
@@ -34,7 +34,12 @@ class FriendList extends Component {
       .then(response => {
         console.log('created', response);
         this.setState(prevState => ({
-          items: [...prevState.items, response]
+          items: [...prevState.items, {
+            friendshipId: response.data.id,
+            friendshipType: 'from_me',
+            fullName: response.data.request,
+            isConfirmed: false
+          }]
         }));
         return response;
       })
