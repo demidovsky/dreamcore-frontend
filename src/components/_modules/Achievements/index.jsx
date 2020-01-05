@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PageHeader from './../../PageHeader';
 import AchievementList from './list';
 import './achievements.css';
@@ -11,11 +12,20 @@ class Achievements extends Component {
     this.state = {
       error: null,
       isLoaded: null,
-      items: []
+      items: [],
+      layout: []
     };
   }
 
-  componentDidMount () {
+  async componentDidMount () {
+    try {
+      const layout = (await axios.get(`${BASE_URL}/layout/achievements`)).data;
+      console.log('get layout', layout);
+      if (layout) this.setState({ layout: JSON.parse(layout) });
+    } catch (error) {
+      console.error(error);
+    }
+
     fetch(`${BASE_URL}/achievements/`)
       .then(res => res.json())
       .then(
@@ -38,6 +48,11 @@ class Achievements extends Component {
       )
   }
 
+
+  onLayoutChange (layout) {
+    axios.patch(`${BASE_URL}/layout/achievements`, { layout: JSON.stringify(layout) });
+  }
+
   render () {
     return (
       <React.Fragment>
@@ -48,7 +63,10 @@ class Achievements extends Component {
             Cannot load achievements
           </div>
           :
-          <AchievementList items={ this.state.items } /> }
+          <AchievementList
+            items={ this.state.items }
+            layout={ this.state.layout }
+            onLayoutChange={ this.onLayoutChange } /> }
       </React.Fragment>
     );
   }

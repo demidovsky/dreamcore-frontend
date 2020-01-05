@@ -153,14 +153,14 @@ class AchievementItem extends React.Component {
     if (this.state.isDeleted) return null;
 
     return (
-      <NavLink to={ `/achievements/${ this.id }` } className="achievement-item">
+      <div className="achievement-item">
         <div className="card-toolbar">
           <Toolbar items={ this.getToolbarItems() } onSelect={ this.handleToolbar } />
         </div>
         <canvas ref={ node => { this.canvas = node; } } />
         {this.state.isCompleted && <img className="achievement-completed" src={ badge } />}
         <h6 className="figure-title text-center text-black">{ this.name }</h6>
-      </NavLink>
+      </div>
     );
 
     /*return (

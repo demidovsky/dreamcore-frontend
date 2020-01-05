@@ -127,6 +127,7 @@
   line-height: 1;
   margin-bottom: 10px;
   max-width: 150px;
+  width: 150px;
   position: relative;
 }
 
@@ -205,4 +206,15 @@
   background-color: #dde;
   border-color: #444;
   color: #444;
+}
+
+.react-grid-placeholder {
+  background: rgba(128,128,128,0.1);
+  border: 3px dashed #71748d !important;
+  border-radius: 8px;
+  /*z-index: -1;*/
+}
+
+.achievements-layout {
+  position: relative;
 }
