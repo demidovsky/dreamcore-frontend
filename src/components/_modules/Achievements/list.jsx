@@ -36,7 +36,7 @@ function AchievementList (props) {
   const itemsIncomplete = props.items && props.items.length ?
     props.items.filter(item => !item.isCompleted).map((item, index) => {
       const key = `a${(index + 1).toString()}`;
-      const grid = layout[key];
+      const grid = layout[key];// || {w:1,h:1,x:0,y:0}
       return (
         <div className="text-center" data-grid={ grid } key={ key }>
           <AchievementItem item={ item } />
@@ -47,19 +47,20 @@ function AchievementList (props) {
   return (
     <Fragment>
 
-      <div className="achievements-bg-dark" style={ { backgroundImage: `url(${ bg2 })` } }>
-
-      <Link to="/achievements/add">
-        <span className="btn btn-xl btn-primary m-4">New</span>
+      <Link to="/achievements/add" className="achievement-new">
+        <span className="btn btn-lg btn-primary">Create new</span>
       </Link>
+
+      <div className="achievements-bg-dark" style={ { backgroundImage: `url(${ bg2 })` } }>
 
       <GridLayout
         className="achievements-layout"
-        cols={ 8 }
-        rowHeight={ 150 }
-        margin={ [30, 30] }
+        cols={ 7 }
+        rowHeight={ 140 }
+        margin={ [30, 40] }
         width={ 1200 }
         verticalCompact={ false }
+        preventCollision={ true }
         onDragStop={ props.onLayoutChange }
         >
           {itemsIncomplete}

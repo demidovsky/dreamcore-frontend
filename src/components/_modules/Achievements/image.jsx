@@ -34,7 +34,7 @@ class AchievementImage extends React.Component {
             <Tab.Content>
 
               <Tab.Pane eventKey="from-flickr">
-                <ImageFromFlickr text={ this.props.text } onImageSet={ this.props.onImageSet } />
+                <ImageFromFlickr keywords={ this.props.keywords } onImageSet={ this.props.onImageSet } />
               </Tab.Pane>
 
               <Tab.Pane eventKey="from-file">

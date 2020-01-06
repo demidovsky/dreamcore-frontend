@@ -127,7 +127,7 @@
   line-height: 1;
   margin-bottom: 10px;
   max-width: 150px;
-  width: 150px;
+  /*width: 150px;*/
   position: relative;
 }
 
@@ -217,4 +217,13 @@
 
 .achievements-layout {
   position: relative;
+  margin-bottom: 30px;
+}
+
+.achievement-new {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #f7f4f4;
+  padding: 40px 50px;
 }

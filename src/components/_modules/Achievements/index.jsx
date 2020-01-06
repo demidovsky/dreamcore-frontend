@@ -20,7 +20,7 @@ class Achievements extends Component {
   async componentDidMount () {
     try {
       const layout = (await axios.get(`${BASE_URL}/layout/achievements`)).data;
-      console.log('get layout', layout);
+      // console.log('get layout', layout);
       if (layout) this.setState({ layout: JSON.parse(layout) });
     } catch (error) {
       console.error(error);

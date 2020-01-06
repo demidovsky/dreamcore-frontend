@@ -32,10 +32,11 @@ class AchievementEdit extends React.Component {
     })
     .then((response) => {
       this.setState({ redirect: '/achievements' });
-      // setTimeout(() => { console.log('saved', response); setSubmitting(false); }, 3000);
+      setTimeout(() => { setSubmitting(false); }, 2000);
     })
     .catch(error => {
       console.error(error);
+      setTimeout(() => { setSubmitting(false); }, 2000);
     });
   }
 
@@ -44,7 +45,8 @@ class AchievementEdit extends React.Component {
       .then(response => {
         console.log('loaded', response);
         this.setState({ isLoaded: true, ...response.data });
-        this.expandTextarea();
+        this.expandTextareaAtPreview();
+        this.expandTextareaAtNotes();
       })
       .catch(error => {
         this.setState({ isLoaded: false, error });
@@ -73,23 +75,42 @@ class AchievementEdit extends React.Component {
       });
   }
 
-  onImageSet = (url, name) => {
-    this.setState({ picture: url, name });
+  onImageSet = (url, keywords) => {
+    this.setState({ picture: url, keywords });
   }
 
-  expandTextarea = () => {
-    this.previewName.style.height = 0;
-    this.previewName.style.height = this.previewName.scrollHeight + 'px';
+  handleNameChange = (e) => {
+    this.setState({ name: e.target.value });
+  }
+
+  handleNotesChange = (e) => {
+    this.setState({ notes: e.target.value });
+  }
+
+  handleURLChange = (e) => {
+    this.setState({ picture: e.target.value });
+  }
+
+  expandTextareaAtPreview = () => {
+    this.textAtPreview.style.height = 0;
+    this.textAtPreview.style.height = this.textAtPreview.scrollHeight + 'px';
+  }
+
+  expandTextareaAtNotes = () => {
+    this.textAtNotes.style.height = 0;
+    this.textAtNotes.style.height = this.textAtNotes.scrollHeight + 'px';
   }
 
   addListeners = () => {
-    this.previewName.addEventListener('keyup', this.expandTextarea, false);
-    this.name.addEventListener('keyup', this.expandTextarea, false);
+    this.textAtNotes.addEventListener('keyup', this.expandTextareaAtNotes, false);
+    this.textAtPreview.addEventListener('keyup', this.expandTextareaAtPreview, false);
+    this.name.addEventListener('keyup', this.expandTextareaAtPreview, false);
   }
 
   removeListeners = () => {
-    if (this.previewName) this.previewName.removeEventListener('keyup', this.expandTextarea, false)
-    if (this.name) this.name.removeEventListener('keyup', this.expandTextarea, false)
+    if (this.textAtNotes) this.textAtNotes.removeEventListener('keyup', this.expandTextareaAtNotes, false);
+    if (this.textAtPreview) this.textAtPreview.removeEventListener('keyup', this.expandTextareaAtPreview, false);
+    if (this.name) this.name.removeEventListener('keyup', this.expandTextareaAtPreview, false);
   }
 
   componentDidMount () {
@@ -154,8 +175,10 @@ class AchievementEdit extends React.Component {
                         <h6 className="figure-title">
                           <textarea name="name" className="form-control-plaintext" maxLength="64" rows="2"
                             placeholder="Type here..."
-                            value={ values.name } onChange={ handleChange } onBlur={ handleBlur }
-                            ref={ node => { this.previewName = node; } } />
+                            value={ values.name }
+                            onChange={ handleChange }
+                            onBlur={ e => this.handleNameChange(e) }
+                            ref={ node => { this.textAtPreview = node; } } />
                         </h6>
                       </figcaption>
                     </figure>
@@ -166,21 +189,31 @@ class AchievementEdit extends React.Component {
                   <div className="card create-achievement">
                     <h3 className="card-header bg-dark text-white">Enter description</h3>
                     <div className="card-body">
+
                       <div className="form-group">
                         <label className="col-form-label">Name</label>
                         <input name="name" type="text" className="form-control achievement-input-name"
-                          value={ values.name } maxLength="64" onChange={ handleChange } onBlur={ handleBlur }
+                          value={ values.name } maxLength="64"
+                          onChange={ handleChange }
+                          onBlur={ e => this.handleNameChange(e) }
                           ref={ node => { this.name = node; } } autocomplete="off" />
                       </div>
+
                       <div className="form-group">
                         <label className="col-form-label">Description (criteria)</label>
                         <textarea name="notes" className="form-control achievement-input-notes" rows="3"
-                          value={ values.notes } onChange={ handleChange } onBlur={ handleBlur }></textarea>
+                          value={ values.notes }
+                          onChange={ handleChange }
+                          onBlur={ e => this.handleNotesChange(e) }
+                          ref={ node => { this.textAtNotes = node; } } />
                       </div>
+
                       <div className="form-group">
                         <label className="col-form-label">Image URL</label>
                         <input name="picture" type="text" className="form-control"
-                          value={ values.picture } onChange={ handleChange } onBlur={ handleBlur }
+                          value={ values.picture }
+                          onChange={ handleChange }
+                          onBlur={ e => this.handleURLChange(e) }
                           />
                       </div>
                       
@@ -239,7 +272,9 @@ class AchievementEdit extends React.Component {
                 <div className="card achievement-image-select">
                   <h3 className="card-header bg-dark text-white">Add Image</h3>
                   <div className="card-body">
-                    <AchievementImage text={ values.name } onImageSet={ this.onImageSet }/>
+                    <AchievementImage
+                      keywords={ values.keywords || values.name }
+                      onImageSet={ this.onImageSet }/>
                   </div>
                 </div>
               </Col>

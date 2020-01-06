@@ -65,8 +65,8 @@ class AchievementItem extends React.Component {
   }
 
   draw = (currentLayers) => {
-    this.canvas.style.width  = '150px';
-    this.canvas.style.height = '150px';
+    this.canvas.style.width  = '140px';
+    this.canvas.style.height = '140px';
     var ctx = this.canvas.getContext('2d');
     // console.log(ctx);
     // console.log(this.canvas);
