@@ -110,11 +110,18 @@
 .achievements-bg-dark {
   /*background-color: #222;*/
   margin-left: -30px;
-  margin-right: -21px;
+  margin-right: -30px;
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center;
+}
 
+@media screen and (max-width: 768px) {
+  .achievements-bg,
+  .achievements-bg-dark {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
 }
 
 .achievements-bg .figure-title {
@@ -225,5 +232,13 @@
   right: 0;
   top: 0;
   background: #f7f4f4;
-  padding: 40px 50px;
+  padding: 40px 50px 0 40px;
+}
+
+@media screen and (max-width: 479px) {
+  .achievement-new {
+    position: relative;
+    top: -15px;
+    left: 10px;
+  }
 }
