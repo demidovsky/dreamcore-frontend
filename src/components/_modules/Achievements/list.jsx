@@ -2,11 +2,13 @@ import _ from 'lodash';
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import GridLayout from 'react-grid-layout';
+import GridLayout, { WidthProvider, Responsive } from 'react-grid-layout';
 import AchievementItem from './item';
 import noImage from './no-image.jpg';
 import bg2 from './bg5.jpg';
 import bg from './hex.jpg';
+
+const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 /*const add = (
   <div className="col-xl-auto col-lg-auto col-md-4 col-sm-4 col-6" key="add">
@@ -26,7 +28,8 @@ import bg from './hex.jpg';
 function AchievementList (props) {
   // console.log('ITEMS', props.items);
   // console.log('LAYOUT', props.layout);
-  const layout = props.layout.length ? _.zipObject(_.map(props.layout, 'i'), props.layout) : [];
+  const layout = props.layout && props.layout.length ? _.zipObject(_.map(props.layout, 'i'), props.layout) : [];
+
   const itemsCompleted = props.items && props.items.length ? props.items.filter(item => item.isCompleted).map((item, index) => (
     <div className="text-center" key={ `a${(index + 1).toString()}` }>
       <AchievementItem item={ item } />
@@ -53,9 +56,10 @@ function AchievementList (props) {
 
       <div className="achievements-bg-dark" style={ { backgroundImage: `url(${ bg2 })` } }>
 
-      <GridLayout
+      <ResponsiveReactGridLayout
         className="achievements-layout"
-        cols={ 7 }
+        breakpoints={ { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 } }
+        cols={ { lg: 8, md: 6, sm: 4, xs: 3, xxs: 2 } }
         rowHeight={ 140 }
         margin={ [30, 40] }
         width={ 1200 }
@@ -64,7 +68,7 @@ function AchievementList (props) {
         onDragStop={ props.onLayoutChange }
         >
           {itemsIncomplete}
-      </GridLayout>
+      </ResponsiveReactGridLayout>
 
       </div>
 

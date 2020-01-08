@@ -49,7 +49,8 @@ class Achievements extends Component {
   }
 
 
-  onLayoutChange (layout) {
+  onLayoutChange (layout, layouts) {
+    // TODO: separate breakpoints
     axios.patch(`${BASE_URL}/layout/achievements`, { layout: JSON.stringify(layout) });
   }
 
