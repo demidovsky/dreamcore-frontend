@@ -3,6 +3,7 @@ import axios from 'axios';
 import PageHeader from './../../PageHeader';
 import ProfileBio from './../../Profile/ProfileBio';
 import ProfileStats from './../../Profile/ProfileStats';
+import FriendAchievements from './FriendAchievements';
 import './../../Profile/profile.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -66,7 +67,7 @@ class FriendPage extends Component {
   render () {
     return (
       <Fragment>
-        <PageHeader breadcrumps={ ['Friends', this.state.user ? this.state.user.fullName : null] } />
+        <PageHeader title="Friend" breadcrumps={ ['Friends', this.state.user ? this.state.user.fullName : null] } />
 
         {this.state.isLoaded === false ?
           <div className="alert alert-danger" role="alert">
@@ -76,6 +77,7 @@ class FriendPage extends Component {
           <Fragment>
             <ProfileBio user={ this.state.user } isFriendProfile />
             <ProfileStats user={ this.state.user } friends={ this.state.friends } />
+            <FriendAchievements items={ this.state.user.sharedAchievements } />
           </Fragment>
         }
       </Fragment>

@@ -154,9 +154,10 @@ class AchievementItem extends React.Component {
 
     return (
       <div className="achievement-item">
+        {!this.props.isToolbarDisabled &&
         <div className="card-toolbar">
           <Toolbar items={ this.getToolbarItems() } onSelect={ this.handleToolbar } />
-        </div>
+        </div>}
         <canvas ref={ node => { this.canvas = node; } } />
         {this.state.isCompleted && <img className="achievement-completed" src={ badge } />}
         <h6 className="figure-title text-center text-black">{ this.name }</h6>
