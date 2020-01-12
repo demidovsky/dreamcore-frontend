@@ -243,3 +243,9 @@
     padding: 0;
   }
 }
+
+.custom-control-label .user-avatar-md {
+  min-width: 32px;
+  min-height: 32px;
+  background: #eee;
+}

@@ -7,6 +7,7 @@ import { Redirect } from 'react-router-dom';
 import PageHeader from './../../PageHeader';
 import noImage from './no-image.jpg';
 import AchievementImage from './image';
+import AchievementAccess from './access';
 import ScopeList from '../Scopes/ScopeList';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -16,7 +17,8 @@ class AchievementEdit extends React.Component {
     super(props);
     this.state = {
       id: parseInt(props.match.params.id, 10),
-      scopes: []
+      scopes: [],
+      friends: [],
     };
   }
 
@@ -117,6 +119,12 @@ class AchievementEdit extends React.Component {
     this.addListeners();
     if (this.state.id) this.load(this.state.id);
 
+    axios.get(`${ BASE_URL }/friends?confirmed=true`)
+      .then(
+        result => { this.setState({ friends: result.data }); console.log(result); return result; },
+        error => { console.error(error); })
+      .catch(err => console.error(err));
+
     fetch(`${ BASE_URL }/scopes/`)
       .then(res => res.json())
       .then(
@@ -187,7 +195,7 @@ class AchievementEdit extends React.Component {
 
                 <Col sm={ 8 } lg={ 6 }>
                   <div className="card create-achievement">
-                    <h3 className="card-header bg-dark text-white">Enter description</h3>
+                    <h3 className="card-header bg-dark text-white">Describe</h3>
                     <div className="card-body">
 
                       <div className="form-group">
@@ -196,7 +204,7 @@ class AchievementEdit extends React.Component {
                           value={ values.name } maxLength="64"
                           onChange={ handleChange }
                           onBlur={ e => this.handleNameChange(e) }
-                          ref={ node => { this.name = node; } } autocomplete="off" />
+                          ref={ node => { this.name = node; } } autoComplete="off" />
                       </div>
 
                       <div className="form-group">
@@ -234,7 +242,7 @@ class AchievementEdit extends React.Component {
                       </div>
                       <br/>
                       <div className="form-group text-right">
-                        <button disabled={ isSubmitting } type="submit" className="btn btn-lg btn-success">Save</button>
+                        <button disabled={ isSubmitting } type="submit" className="btn btn-lg btn-primary">Save</button>
                       </div>
                     </div>
                   </div>
@@ -270,7 +278,7 @@ class AchievementEdit extends React.Component {
 
               <Col>
                 <div className="card achievement-image-select">
-                  <h3 className="card-header bg-dark text-white">Add Image</h3>
+                  <h3 className="card-header bg-dark text-white">Visualize</h3>
                   <div className="card-body">
                     <AchievementImage
                       keywords={ values.keywords || values.name }
@@ -286,11 +294,25 @@ class AchievementEdit extends React.Component {
 
         </Formik>
 
-      </React.Fragment>)
+        <Row>
+
+          <Col>
+            <div className="card">
+              <h3 className="card-header bg-dark text-white">Who can see this achievement?</h3>
+              <div className="card-body">
+                <AchievementAccess
+                  achievementId={ this.state.id }
+                  friends={ this.state.friends }
+                  onSet={ this.onSet }/>
+              </div>
+            </div>
+          </Col>
+
+        </Row>
+
+      </React.Fragment>);
   }
 }
-
-
 
 
 AchievementEdit.propTypes = {
