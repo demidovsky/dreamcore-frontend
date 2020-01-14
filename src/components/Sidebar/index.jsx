@@ -32,37 +32,37 @@ class Sidebar extends Component {
             <div className="" id="navbarNav">
               <ul className="navbar-nav flex-column">
 
-                <li className="nav-divider"> Modules </li>
+                <li className="nav-divider"> Модули </li>
 
                 <li className="nav-item">
                   <NavLink to="/achievements" className="nav-link" activeClassName="active">
-                    <i className="fa fa-fw fa-award"></i>Achievements
+                    <i className="fa fa-fw fa-award"></i>Ачивменты
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <del to="/actions" className="nav-link text-gray">
-                    <i className="fa fa-fw fa-list"></i>Actions
+                    <i className="fa fa-fw fa-list"></i>Действия
                   </del>
                 </li>
                 <li className="nav-item">
                   <del to="/scopes" className="nav-link text-gray">
-                    <i className="fa fa-fw fa-cubes"></i>Scopes
+                    <i className="fa fa-fw fa-cubes"></i>Сферы
                   </del>
                 </li>
 
                 <li className="nav-item">
                   <del className="nav-link text-gray" href="" title="Priorities">
-                    <i className="fa fa-fw fa-th-large"></i>Priorities
+                    <i className="fa fa-fw fa-th-large"></i>Приоритеты
                   </del>
                 </li>
                 <li className="nav-item">
                   <del className="nav-link text-gray" href="" title="Streaks">
-                    <i className="fa fa-fw fa-grip-horizontal"></i>Streaks
+                    <i className="fa fa-fw fa-grip-horizontal"></i>Привычки
                   </del>
                 </li>
                 <li className="nav-item">
                   <del className="nav-link text-gray" href="" title="Plan">
-                    <i className="fa fa-fw fa-stream"></i>Plan
+                    <i className="fa fa-fw fa-stream"></i>Планы
                   </del>
                 </li>
                 {/*<li className="nav-item"><a className="nav-link" href="" title="Finance">
@@ -72,21 +72,21 @@ class Sidebar extends Component {
                   <i className="fa fa-fw fa-gift"></i>Wishlist</a>
                 </li>*/}
 
-                <li className="nav-divider"> Collab </li>
-
+                <li className="nav-divider"> Друзья </li>
+                <li className="nav-item">
+                  <NavLink to="/friends" className="nav-link" activeClassName="active">
+                    <i className="fa fa-fw fa-user-friends"></i>Моя команда
+                  </NavLink>
+                </li>
                 <li className="nav-item">
                   <del className="nav-link text-gray" href="" title="News">
-                    <i className="fa fa-fw fa-heartbeat"></i>Feed
+                    <i className="fa fa-fw fa-heartbeat"></i>Новости
                   </del>
                 </li>
                 {/*<li className="nav-item"><a className="nav-link" href="" title="Family">
                   <i className="fa fa-fw fa-home"></i>Groups</a>
                 </li>*/}
-                <li className="nav-item">
-                  <NavLink to="/friends" className="nav-link" activeClassName="active">
-                    <i className="fa fa-fw fa-user-friends"></i>Friends
-                  </NavLink>
-                </li>
+                
 
               </ul>
             </div>
