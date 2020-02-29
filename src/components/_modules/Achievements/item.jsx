@@ -60,6 +60,7 @@ class AchievementItem extends React.Component {
     {
       item.img = new Image();
       item.img.onload = () => { if (!--loadsLeft) this.draw(currentLayers); }
+      item.img.onerror = () => { if (!--loadsLeft) this.draw(currentLayers); }
       item.img.src = item.path;
     });
   }

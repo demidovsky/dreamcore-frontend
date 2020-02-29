@@ -28,25 +28,8 @@ class Friends extends Component {
 
   componentDidMount () {
     axios.get(`${ BASE_URL }/friends`)
-    // .then(res => res.json())
-    .then(
-      result => {
-        console.log(result);
-        this.setState({
-          isLoaded: true,
-          items: result.data
-        });
-      },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: false,
-            error
-          });
-        }
-      )
+      .then(result => { this.setState({ isLoaded: true, items: result.data }); console.log(result); },
+            error => { this.setState({ isLoaded: false, error }); });
   }
 
   render () {
